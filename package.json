@@ -1,0 +1,15 @@
+{
+  "name": "todo-site",
+  "version": "0.0.0",
+  "description": "Todo Site",
+  "main": "app.js",
+  "author": "Adrian Bueno",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  }
+}
