@@ -10,7 +10,7 @@
     const todoButton = document.querySelector(".todo-button");
     const todoList = document.querySelector(".todo-list")
     todoButton.addEventListener("click", addNewItem);
-    debugger;
+
     let deleteTrash = document.querySelectorAll(".fas.fa-trash")
     if(deleteTrash.length === 0) return;
     deleteTrash.forEach(element => {
@@ -29,7 +29,6 @@
     }
 
     function addNewItem(event) {
-        debugger;
         event.preventDefault();
         let item = getItemTemplate(todoInput.value);
         let testinng = todoList.insertAdjacentHTML("beforeend", item);
