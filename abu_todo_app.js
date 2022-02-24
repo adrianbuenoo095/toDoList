@@ -49,26 +49,7 @@
                     return;
                 });
             }
-        
-            // function saveToLocalstorage(item){
-            //     debugger;
-            //     let todoItems = getLocalStorage();
-            //     let testing = getItemTemplate(todoButton.value);
-            //     if(testing.value === "") return;
-        
-            //     todoItems.setItem(testing.value, testing.value);
-            //     Location.reload();
-            //     for (let i = 0; i < todoItems.length; i++) {
-            //         const key = todoItems.key(i);
-            //         const value = todoItems.getItem(key);
-        
-            //         todoList.innerHTML += `<li>${value}</li>`;
-        
-            //     }
-            //     localStorage.getItem("todoItems", JSON.stringify(todoItems));
-            // }
-        
-        
+            
             function getItemTemplate(contentValue) {
                 if (contentValue === "") return;
                 return `<li>
