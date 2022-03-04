@@ -10,8 +10,6 @@
         const todoButton = document.querySelector(".todo-button");
         const todoList = document.querySelector(".todo-list");
         
-        //Event Listener
-        // let deleteTrash = document.querySelectorAll(".fas.fa-trash");
         todoList.addEventListener("click", deleteItem);
         todoButton.addEventListener("click", addNewItem);
             
@@ -22,11 +20,11 @@
                     if (item[i].contains(event.target)) {
                         todoList.removeChild(item[i]);
                         removeTodoFromLocalStorage(item[i]);
-
                     }
                 }
             }
             //#endregion
+            
             function removeTodoFromLocalStorage(item) {
                localStorage.removeItem("todos");
             }
