@@ -21,10 +21,15 @@
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].contains(event.target)) {
                         todoList.removeChild(item[i]);
+                        removeTodoFromLocalStorage(item[i]);
+
                     }
                 }
             }
             //#endregion
+            function removeTodoFromLocalStorage(item) {
+               localStorage.removeItem("todos");
+            }
         
             function addNewItem(event) {
                 debugger;
