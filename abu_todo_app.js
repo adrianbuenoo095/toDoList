@@ -5,11 +5,14 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
+
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 const todoInput = document.querySelector(".inputIteam");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 
+//Event Listener
+// let deleteTrash = document.querySelectorAll(".fas.fa-trash");
 todoList.addEventListener("click", deleteItem);
 todoButton.addEventListener("click", addNewItem);
 
@@ -19,15 +22,11 @@ function deleteItem(event) {
     for (let i = 0; i < item.length; i++) {
         if (item[i].contains(event.target)) {
             todoList.removeChild(item[i]);
-            removeTodoFromLocalStorage(item[i]);
+            localStorage.removeItem("todos");
         }
     }
 }
 //#endregion
-
-function removeTodoFromLocalStorage(item) {
-    localStorage.removeItem(todos.indexOf(item));
-}
 
 function addNewItem(event) {
     debugger;
@@ -37,41 +36,42 @@ function addNewItem(event) {
         alert("Please enter a valid todo");
         return;
     }
-    //todoList.insertAdjacentHTML("beforeend", userInputToDO);
+    todoList.insertAdjacentHTML("beforeend", userInputToDO);
+    todoInput.value = "";
     saveToDosToLocalStorage(userInputToDO);
 }
 //TODO: Save todos to local storage
 //TODO: Set todos to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function saveToDosToLocalStorage(userInputToDO) {
-    debugger;
-    todos.push(userInputToDO);
+function saveToDosToLocalStorage(inputIteam) {
+    todos.push(inputIteam);
     localStorage.setItem("todos", JSON.stringify(todos));
     todos.forEach(element => {
         if (element === null || element === undefined) return;
+       
         todoList.insertAdjacentHTML("beforeend", element);
-        return;
+
     });
 }
 
 function getItemTemplate(contentValue) {
     if (contentValue === "") return;
-    return `<li>
-                            <div class="content">
-                                <p>${contentValue}</p> 
-                            </div>  
-                            <div class="interactions" >
-                                <div class="completeTask">
-                                    <button >
-                                        <i class="fas fa-check"></i>
-                                    </button>
-                                </div>
-                                <div id="deleteTask">
-                                    <button" class="delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>`;
+    return `<li class="todo">
+            <div class="content">
+                <p>${contentValue}</p> 
+            </div>  
+            <div class="interactions" >
+                <div class="completeTask">
+                    <button class="complete-btn">
+                        <i class="fas fa-check"></i>
+                    </button>
+                </div>
+                <div class="deleteTask">
+                    <button class="trash-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </li>`;
 
 }
 saveToDosToLocalStorage();
