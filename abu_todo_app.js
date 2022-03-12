@@ -72,6 +72,5 @@ function getItemTemplate(contentValue) {
                 </div>
             </div>
         </li>`;
-
 }
 saveToDosToLocalStorage();
