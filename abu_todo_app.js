@@ -1,12 +1,12 @@
 ///*
 // * Add a filter to show Completed and in progress
 // * Add a greeting
-// * Add a list of todos for example for work or school.
+// * Add a list of toDOs for example for work or school.
 // * Resposive for web and mobile
 // * Add a search bar
 
 
-let todos = JSON.parse(localStorage.getItem("todos")) || [];
+let toDOs = JSON.parse(localStorage.getItem("toDOs")) || [];
 const todoInput = document.querySelector(".inputIteam");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
@@ -22,14 +22,13 @@ function deleteItem(event) {
     for (let i = 0; i < item.length; i++) {
         if (item[i].contains(event.target)) {
             todoList.removeChild(item[i]);
-            localStorage.removeItem("todos");
+            localStorage.removeItem("toDOs");
         }
     }
 }
 //#endregion
 
 function addNewItem(event) {
-    debugger;
     event.preventDefault();
     let userInputToDO = getItemTemplate(todoInput.value);
     if (userInputToDO === undefined) {
@@ -38,14 +37,14 @@ function addNewItem(event) {
     }
     todoList.insertAdjacentHTML("beforeend", userInputToDO);
     todoInput.value = "";
-    saveToDosToLocalStorage(userInputToDO);
+    savetoDOsToLocalStorage(userInputToDO);
 }
-//TODO: Save todos to local storage
-//TODO: Set todos to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function saveToDosToLocalStorage(inputIteam) {
-    todos.push(inputIteam);
-    localStorage.setItem("todos", JSON.stringify(todos));
-    todos.forEach(element => {
+//TODO: Save toDOs to local storage
+//TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
+function savetoDOsToLocalStorage(inputIteam) {
+    toDOs.push(inputIteam);
+    localStorage.setItem("toDOs", JSON.stringify(toDOs));
+    toDOs.forEach(element => {
         if (element === null || element === undefined) return;
        
         todoList.insertAdjacentHTML("beforeend", element);
@@ -73,4 +72,5 @@ function getItemTemplate(contentValue) {
             </div>
         </li>`;
 }
-saveToDosToLocalStorage();
+
+savetoDOsToLocalStorage();
