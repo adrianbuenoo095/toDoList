@@ -5,7 +5,6 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
-
 let toDOs = JSON.parse(localStorage.getItem("toDOs")) || [];
 const todoInput = document.querySelector(".inputIteam");
 const todoButton = document.querySelector(".todo-button");
@@ -33,7 +32,7 @@ function addNewItem(event) {
     let userInputToDO = getItemTemplate(todoInput.value);
     if (userInputToDO === undefined) {
         alert("Please enter a valid todo");
-        return;
+        return null;
     }
     todoList.insertAdjacentHTML("beforeend", userInputToDO);
     todoInput.value = "";
