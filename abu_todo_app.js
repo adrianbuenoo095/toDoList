@@ -37,7 +37,7 @@ function addNewItem(event) {
     }
     todoList.insertAdjacentHTML("beforeend", userInputToDO);
     todoInput.value = "";
-    savetoDOsToLocalStorage(userInputToDO);
+    // savetoDOsToLocalStorage(userInputToDO);
 }
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
