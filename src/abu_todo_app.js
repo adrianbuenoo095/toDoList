@@ -34,7 +34,7 @@ function getNewItem(event) {
     alert("Please enter a valid todo");
     return;
   }
-  
+
   let testing = savetoDOsToLocalStorage(userInputToDO);
   todoList.insertAdjacentHTML("beforeend", testing);
   todoInput.value = "";
