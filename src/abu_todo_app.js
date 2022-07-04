@@ -13,47 +13,46 @@ const todoList = document.querySelector(".todo-list");
 //Event Listener
 // let deleteTrash = document.querySelectorAll(".fas.fa-trash");
 todoList.addEventListener("click", deleteItem);
-todoButton.addEventListener("click", addNewItem);
+todoButton.addEventListener("click", getNewItem);
 
-//#region Delete item from list 
+//#region Delete item from list
 function deleteItem(event) {
-    const item = todoList.children;
-    for (let i = 0; i < item.length; i++) {
-        if (item[i].contains(event.target)) {
-            todoList.removeChild(item[i]);
-            localStorage.removeItem("toDOs");
-        }
+  const item = todoList.children;
+  for (let i = 0; i < item.length; i++) {
+    if (item[i].contains(event.target)) {
+      todoList.removeChild(item[i]);
+      localStorage.removeItem("toDOs");
     }
+  }
 }
 //#endregion
 
-function addNewItem(event) {
-    event.preventDefault();
-    let userInputToDO = getItemTemplate(todoInput.value);
-    if (userInputToDO === undefined) {
-        alert("Please enter a valid todo");
-        return null;
-    }
-    todoList.insertAdjacentHTML("beforeend", userInputToDO);
-    todoInput.value = "";
-    // savetoDOsToLocalStorage(userInputToDO);
+function getNewItem(event) {
+  event.preventDefault();
+  let userInputToDO = getItemTemplate(todoInput.value);
+  if (userInputToDO === undefined || userInputToDO === null) {
+    alert("Please enter a valid todo");
+    return;
+  }
+  
+  let testing = savetoDOsToLocalStorage(userInputToDO);
+  todoList.insertAdjacentHTML("beforeend", testing);
+  todoInput.value = "";
 }
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function savetoDOsToLocalStorage(inputIteam) {
-    toDOs.push(inputIteam);
-    localStorage.setItem("toDOs", JSON.stringify(toDOs));
-    toDOs.forEach(element => {
-        if (element === null || element === undefined) return;
-       
-        todoList.insertAdjacentHTML("beforeend", element);
-
-    });
+  toDOs.push(inputIteam);
+  localStorage.setItem("toDOs", JSON.stringify(toDOs));
+  toDOs.forEach((element) => {
+    if (element === null || element === undefined) return;
+    // todoList.insertAdjacentHTML("beforeend", element);
+  });
 }
 
 function getItemTemplate(contentValue) {
-    if (contentValue === "") return;
-    return `<li class="todo">
+  if (contentValue === "") return;
+  return `<li class="todo">
             <div class="content">
                 <p>${contentValue}</p> 
             </div>  
