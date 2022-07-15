@@ -32,7 +32,7 @@ function getNewItem(event) {
     event.preventDefault();
     let userInputToDO = getItemTemplate(todoInput.value);
     if (userInputToDO === undefined || userInputToDO === null) {
-        alert("Please enter a valid todo");
+        alert("Please enter a valid toDo");
         return;
     }
     savetoDOsToLocalStorage(userInputToDO);
@@ -41,12 +41,13 @@ function getNewItem(event) {
 }
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function savetoDOsToLocalStorage(inputIteam) {
-    toDOs.push(inputIteam);
+function savetoDOsToLocalStorage(toDoItem) {
+    toDOs.push(toDoItem);
     localStorage.setItem("toDOs", JSON.stringify(toDOs));
     toDOs.forEach((element) => {
         if (element === null || element === undefined) return;
         todoList.insertAdjacentHTML("beforeend", element);
+        toDoItem.value = "";
     });
 }
 
