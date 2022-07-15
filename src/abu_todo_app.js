@@ -5,10 +5,11 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
-let toDOs = JSON.parse(localStorage.getItem("toDOs")) || [];
+let toDOs = JSON.parse(localStorage.getItem(getKeys())) || [];
 const todoInput = document.querySelector(".inputIteam");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+
 
 //Event Listener
 // let deleteTrash = document.querySelectorAll(".fas.fa-trash");
@@ -34,10 +35,9 @@ function getNewItem(event) {
         alert("Please enter a valid todo");
         return;
     }
-
-    let testing = savetoDOsToLocalStorage(userInputToDO);
-    todoList.insertAdjacentHTML("beforeend", testing);
-    todoInput.value = "";
+    savetoDOsToLocalStorage(userInputToDO);
+    // todoList.insertAdjacentHTML("beforeend", testing);
+    // todoInput.value = "";
 }
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
@@ -46,7 +46,7 @@ function savetoDOsToLocalStorage(inputIteam) {
     localStorage.setItem("toDOs", JSON.stringify(toDOs));
     toDOs.forEach((element) => {
         if (element === null || element === undefined) return;
-        // todoList.insertAdjacentHTML("beforeend", element);
+        todoList.insertAdjacentHTML("beforeend", element);
     });
 }
 
@@ -71,4 +71,7 @@ function getItemTemplate(contentValue) {
         </li>`;
 }
 
+function getKeys() {
+    return Object.keys(localStorage);
+}
 savetoDOsToLocalStorage();
