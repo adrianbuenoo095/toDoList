@@ -1,15 +1,13 @@
-///*
 // * Add a filter to show Completed and in progress
 // * Add a greeting
 // * Add a list of toDOs for example for work or school.
 // * Resposive for web and mobile
 // * Add a search bar
 
-let toDOs = JSON.parse(localStorage.getItem(getKeys())) || [];
-const todoInput = document.querySelector(".inputIteam");
+let toDos = [];
+const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-
 
 //Event Listener
 // let deleteTrash = document.querySelectorAll(".fas.fa-trash");
@@ -35,44 +33,50 @@ function getNewItem(event) {
         alert("Please enter a valid toDo");
         return;
     }
-    savetoDOsToLocalStorage(userInputToDO);
-    // todoList.insertAdjacentHTML("beforeend", testing);
+    addToDOsToLocalStorage(userInputToDO);
+    // todoList.insertAdjacentHTML("beforeend", userInputToDO);
     // todoInput.value = "";
 }
+
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function savetoDOsToLocalStorage(toDoItem) {
-    toDOs.push(toDoItem);
-    localStorage.setItem("toDOs", JSON.stringify(toDOs));
-    toDOs.forEach((element) => {
-        if (element === null || element === undefined) return;
-        todoList.insertAdjacentHTML("beforeend", element);
+function addToDOsToLocalStorage(toDoItem) {
+    let addedTodo = toDos.push(toDoItem);
+    let savedTasks = getItemTemplate(addedTodo);
+    toDos.forEach((task) => {
+        if (task === null || task === undefined) return;
+        todoList.insertAdjacentHTML("beforeend", task);
         toDoItem.value = "";
     });
 }
 
+function getLocalStorage(item) {
+    return JSON.parse(localStorage.getItem(item)) || [];
+}
+
+function setItemLocalStorage(todos) {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+//#region Get item template
 function getItemTemplate(contentValue) {
     if (contentValue === "") return;
     return `<li class="todo">
-            <div class="content">
-                <p>${contentValue}</p> 
-            </div>  
-            <div class="interactions" >
-                <div class="completeTask">
-                    <button class="complete-btn">
-                        <i class="fas fa-check"></i>
-                    </button>
+                <div class="content">
+                    <p>${contentValue}</p> 
+                </div>  
+                <div class="interactions" >
+                    <div class="completeTask">
+                        <button class="complete-btn">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                    <div class="deleteTask">
+                        <button class="trash-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="deleteTask">
-                    <button class="trash-btn">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-            </div>
-        </li>`;
+            </li>`;
 }
-
-function getKeys() {
-    return Object.keys(localStorage);
-}
-savetoDOsToLocalStorage();
+//#endregion
