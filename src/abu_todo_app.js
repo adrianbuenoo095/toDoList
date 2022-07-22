@@ -4,6 +4,8 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
+window.onload = addToDOsToLocalStorage;
+
 let toDos = [];
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
@@ -41,21 +43,22 @@ function getNewItem(event) {
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addToDOsToLocalStorage(toDoItem) {
-    let addedTodo = toDos.push(toDoItem);
-    let savedTasks = getItemTemplate(addedTodo);
-    toDos.forEach((task) => {
+    toDos.push(toDoItem);
+    setItemLocalStorage(toDos);
+    let retrievedTasks = getLocalStorage(toDoItem);
+    retrievedTasks.forEach((task) => {
         if (task === null || task === undefined) return;
         todoList.insertAdjacentHTML("beforeend", task);
         toDoItem.value = "";
     });
 }
 
-function getLocalStorage(item) {
-    return JSON.parse(localStorage.getItem(item)) || [];
+function getLocalStorage() {
+    return JSON.parse(localStorage.getItem(toDos));
 }
 
-function setItemLocalStorage(todos) {
-    localStorage.setItem("todos", JSON.stringify(todos));
+function setItemLocalStorage(task) {
+    localStorage.setItem("toDos", JSON.stringify(task));
 }
 
 //#region Get item template
