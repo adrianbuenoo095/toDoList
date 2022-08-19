@@ -4,7 +4,7 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
-window.onload = addToDOsToLocalStorage;
+window.onload = getLocalStorage;
 
 let toDos = [];
 const todoInput = document.querySelector(".inputItem");
@@ -45,16 +45,15 @@ function getNewItem(event) {
 function addToDOsToLocalStorage(toDoItem) {
     toDos.push(toDoItem);
     setItemLocalStorage(toDos);
-    let retrievedTasks = getLocalStorage(toDoItem);
-    retrievedTasks.forEach((task) => {
-        if (task === null || task === undefined) return;
-        todoList.insertAdjacentHTML("beforeend", task);
-        toDoItem.value = "";
-    });
 }
 
 function getLocalStorage() {
-    return JSON.parse(localStorage.getItem(toDos));
+    let retrievedTasks = JSON.parse(localStorage.getItem("toDos"));
+    retrievedTasks.forEach((task) => {
+        if (task === null || task === undefined) return;
+        todoList.insertAdjacentHTML("beforeend", task);
+        todoInput.value = "";
+    });
 }
 
 function setItemLocalStorage(task) {
