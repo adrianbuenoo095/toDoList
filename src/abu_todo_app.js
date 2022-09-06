@@ -4,7 +4,7 @@
 // * Resposive for web and mobile
 // * Add a search bar
 
-window.onload = getLocalStorage;
+// window.onload = getNewItem;
 
 let toDos = [];
 const todoInput = document.querySelector(".inputItem");
@@ -43,20 +43,28 @@ function getNewItem(event) {
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addToDOsToLocalStorage(toDoItem) {
-    toDos.push(toDoItem);
-    setItemLocalStorage(toDos);
+    let toDoTask = toDos.push(toDoItem);
+    setItemLocalStorage(toDoTask);
+    
 }
 
 function getLocalStorage() {
     let retrievedTasks = JSON.parse(localStorage.getItem("toDos"));
-    retrievedTasks.forEach((task) => {
+    let tasks = retrievedTasks.forEach((task) => {
         if (task === null || task === undefined) return;
         todoList.insertAdjacentHTML("beforeend", task);
         todoInput.value = "";
     });
+    return tasks;
 }
 
 function setItemLocalStorage(task) {
+    let taskList = getLocalStorage();
+    toDos.push(taskList);
+    for (let i = 0; i < toDos.length; i++) {
+        let key = i;
+        localStorage.setItem(key, JSON.stringify(task));
+    }
     localStorage.setItem("toDos", JSON.stringify(task));
 }
 
