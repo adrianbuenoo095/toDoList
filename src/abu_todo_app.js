@@ -3,6 +3,7 @@
 // * Add a list of toDOs for example for work or school.
 // * Resposive for web and mobile
 // * Add a search bar
+// * Add an error below the input field if the user does not enter a valid toDO
 
 // window.onload = getNewItem;
 
@@ -45,11 +46,12 @@ function getNewItem(event) {
 function addToDOsToLocalStorage(toDoItem) {
     let toDoTask = toDos.push(toDoItem);
     setItemLocalStorage(toDoTask);
-    
+    return toDoTask;
+
 }
 
 function getLocalStorage() {
-    let retrievedTasks = JSON.parse(localStorage.getItem("toDos"));
+    let retrievedTasks = JSON.parse(localStorage.getItem(addToDOsToLocalStorage(todo)));
     let tasks = retrievedTasks.forEach((task) => {
         if (task === null || task === undefined) return;
         todoList.insertAdjacentHTML("beforeend", task);
@@ -65,7 +67,7 @@ function setItemLocalStorage(task) {
         let key = i;
         localStorage.setItem(key, JSON.stringify(task));
     }
-    localStorage.setItem("toDos", JSON.stringify(task));
+    return localStorage.setItem("toDos", JSON.stringify(task));
 }
 
 //#region Get item template
