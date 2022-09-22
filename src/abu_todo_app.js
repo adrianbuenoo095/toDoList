@@ -43,7 +43,7 @@ function getNewItem(event) {
 
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function addToDOsToLocalStorage(toDoItem) {
+function addValuesToLocalStorage(toDoItem) {
     let toDoTask = toDos.push(toDoItem);
     setItemLocalStorage(toDoTask);
     return toDoTask;
@@ -51,7 +51,7 @@ function addToDOsToLocalStorage(toDoItem) {
 }
 
 function getLocalStorage() {
-    let retrievedTasks = JSON.parse(localStorage.getItem(addToDOsToLocalStorage(todo)));
+    let retrievedTasks = JSON.parse(localStorage.getIte m());
     let tasks = retrievedTasks.forEach((task) => {
         if (task === null || task === undefined) return;
         todoList.insertAdjacentHTML("beforeend", task);
