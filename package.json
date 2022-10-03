@@ -5,11 +5,12 @@
   "main": "app.js",
   "author": "Adrian Bueno",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js"
   },
   "license": "ISC",
   "devDependencies": {
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint-config-standard": "^22.0.0",
+    "webpack": "^5.74.0"
   }
 }
