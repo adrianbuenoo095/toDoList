@@ -1,2 +1,2 @@
 # toDoList
-Personal project 
+This is a personal project
