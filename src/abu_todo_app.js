@@ -31,15 +31,17 @@ function deleteItem(event) {
 
 function getNewItem(event) {
     event.preventDefault();
-    let userInputToDO = getItemTemplate(todoInput.value);
-    if (userInputToDO === undefined || userInputToDO === null) {
+    let toDoItem = getItemTemplate(todoInput?.value);
+    if (toDoItem === undefined) {
         alert("Please enter a valid toDo");
         return;
     }
-    addToDOsToLocalStorage(userInputToDO);
-    // todoList.insertAdjacentHTML("beforeend", userInputToDO);
-    // todoInput.value = "";
+    todoList.insertAdjacentHTML("beforeend", toDoItem);
+    todoInput.value = "";
 }
+
+
+
 
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
@@ -51,7 +53,7 @@ function addValuesToLocalStorage(toDoItem) {
 }
 
 function getLocalStorage() {
-    let retrievedTasks = JSON.parse(localStorage.getIte m());
+    let retrievedTasks = JSON.parse(localStorage.getItem());
     let tasks = retrievedTasks.forEach((task) => {
         if (task === null || task === undefined) return;
         todoList.insertAdjacentHTML("beforeend", task);
