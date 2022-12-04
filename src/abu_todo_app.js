@@ -40,16 +40,11 @@ function getNewItem(event) {
     todoInput.value = "";
 }
 
-
-
-
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addValuesToLocalStorage(toDoItem) {
     let toDoTask = toDos.push(toDoItem);
-    setItemLocalStorage(toDoTask);
     return toDoTask;
-
 }
 
 function getLocalStorage() {
