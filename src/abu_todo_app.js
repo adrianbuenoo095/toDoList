@@ -5,7 +5,7 @@
 // * Add a search bar
 // * Add an error below the input field if the user does not enter a valid toDO
 
-// window.onload = getNewItem;
+window.onload = getNewItem;
 
 
 const todoInput = document.querySelector(".inputItem");
