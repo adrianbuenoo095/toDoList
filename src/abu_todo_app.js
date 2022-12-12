@@ -1,11 +1,11 @@
 // * Add a filter to show Completed and in progress
 // * Add a greeting
 // * Add a list of toDOs for example for work or school.
-// * Resposive for web and mobile
+// * Responsive for web and mobile
 // * Add a search bar
 // * Add an error below the input field if the user does not enter a valid toDO
 
-window.onload = getNewItem;
+window.onload = newItem;
 
 
 const todoInput = document.querySelector(".inputItem");
@@ -37,7 +37,8 @@ function newItem(event) {
         return;
     }
     let toDoTask = addValuesToLocalStorage(toDoItem);
-    todoList.insertAdjacentHTML("beforeend", toDoTask);
+    console.log(toDoTask);
+    todoList.insertAdjacentHTML("beforeend", JSON.parse(localStorage.getItem(toDoTask)));
     todoInput.value = "";
 }
 
@@ -45,33 +46,13 @@ function newItem(event) {
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addValuesToLocalStorage(task) {
    let toDosList = [];
-   let key = "";
     toDosList.push(task);
-    toDosList.forEach((todoInput)=>{
-      key = todoInput;
-        localStorage.setItem(key, JSON.stringify(key));
+    toDosList.forEach((todoInputItem, toDoKey)=>{
+        toDoKey++;
+        localStorage.setItem(toDoKey, JSON.stringify(todoInputItem));
+        
     });
-    return key;
-}
-
-function getLocalStorage() {
-    let retrievedTasks = JSON.parse(localStorage.getItem());
-    let tasks = retrievedTasks.forEach((task) => {
-        if (task === null || task === undefined) return;
-        todoList.insertAdjacentHTML("beforeend", task);
-        todoInput.value = "";
-    });
-    return tasks;
-}
-
-function setItemLocalStorage(task) {
-    let taskList = getLocalStorage();
-    toDos.push(taskList);
-    for (let i = 0; i < toDos.length; i++) {
-        let key = i;
-        localStorage.setItem(key, JSON.stringify(task));
-    }
-    return localStorage.setItem("toDos", JSON.stringify(task));
+    return toDosList;
 }
 
 //#region Get item template
