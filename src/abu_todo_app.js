@@ -5,8 +5,7 @@
 // * Add a search bar
 // * Add an error below the input field if the user does not enter a valid toDO
 
-window.onload = newItem;
-
+window.onload = createNewTodoItem;
 
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
@@ -36,21 +35,30 @@ function newItem(event) {
         alert("Please enter a valid toDo");
         return;
     }
+    console.log(createNewTodoItem(toDoItem));
+}
+
+function createNewTodoItem(toDoItem) {
     let toDoTask = addValuesToLocalStorage(toDoItem);
     console.log(toDoTask);
-    todoList.insertAdjacentHTML("beforeend", JSON.parse(localStorage.getItem(toDoTask)));
+    todoList.insertAdjacentHTML("beforeend", retrieveFromLocalStorage());
     todoInput.value = "";
+}
+
+function retrieveFromLocalStorage() {
+    if (!localStorage.getItem("toDoTask") === undefined) return;
+    return JSON.parse(localStorage.getItem("toDoTask"));
 }
 
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addValuesToLocalStorage(task) {
-   let toDosList = [];
+    let toDosList = [];
     toDosList.push(task);
-    toDosList.forEach((todoInputItem, toDoKey)=>{
+    toDosList.forEach((todoInputItem, toDoKey) => {
         toDoKey++;
         localStorage.setItem(toDoKey, JSON.stringify(todoInputItem));
-        
+
     });
     return toDosList;
 }
