@@ -1,9 +1,11 @@
+//.some() method to check if the toDo is already in the list
 // * Add a filter to show Completed and in progress
 // * Add a greeting
 // * Add a list of toDOs for example for work or school.
 // * Responsive for web and mobile
 // * Add a search bar
 // * Add an error below the input field if the user does not enter a valid toDO
+
 
 window.onload = getKeysFromLocalStorage;
 
@@ -38,31 +40,35 @@ function newItem(event) {
     }
 
     toDosList.push(toDoItem);
-    createNewTodoItem();
+    addToDosToLocalStorage();
 }
 
-function createNewTodoItem() {
-    for (const toDo of toDosList) {
-        console.log("this is from " + typeof (createNewTodoItem) + toDo);
-        todoList.insertAdjacentHTML("beforeend", toDo);
-        todoInput.value = "";
-        //caLL or add the toDos to the addValuesToLocalStorage function.
-        addValuesToLocalStorage(toDo);
-    }
+function checkArrayListHasDuplicate(toDo) {
+    return toDosList.some((item) => item === toDo) ? true : false;
+
+}
+
+function createNewTodoItem(toDo) {
+    todoList.insertAdjacentHTML("beforeend", toDo);
+    todoInput.value = "";
 }
 
 function getKeysFromLocalStorage() {
-
-    for (let i = 0, len = localStorage.length; i < len; ++i) {
-        console.log(localStorage.getItem(localStorage.key(i)));
-        createNewTodoItem(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    const storageLength = localStorage.length
+    for (let i = 0; i < storageLength; ++i) {
+        JSON.parse(localStorage.getItem(localStorage.key(i)));
     }
 }
 
 //TODO: Save toDOs to local storage
 //TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
-function addValuesToLocalStorage(toDo) {
-    localStorage.setItem(toDo, JSON.stringify(toDo))
+function addToDosToLocalStorage() {
+    let uniqueKey = 0;
+    for (const toDo of toDosList) {
+        uniqueKey++;
+        localStorage.setItem(uniqueKey, JSON.stringify(toDo))
+        createNewTodoItem(toDo);
+    }
 };
 
 //#region Get item template
