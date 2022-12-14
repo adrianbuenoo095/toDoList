@@ -43,11 +43,6 @@ function newItem(event) {
     addToDosToLocalStorage();
 }
 
-function checkArrayListHasDuplicate(toDo) {
-    return toDosList.some((item) => item === toDo) ? true : false;
-
-}
-
 function createNewTodoItem(toDo) {
     todoList.insertAdjacentHTML("beforeend", toDo);
     todoInput.value = "";
