@@ -58,10 +58,8 @@ function getKeysFromLocalStorage() {
     }
 }
 
-//TODO: Save toDOs to local storage
-//TODO: Set toDOs to local storage {https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec}
 function addToDosToLocalStorage() {
-    let uniqueKey = 0;
+    const uniqueKey = 0;
     for (const toDo of toDosList) {
         uniqueKey++;
         localStorage.setItem(uniqueKey, JSON.stringify(toDo))
