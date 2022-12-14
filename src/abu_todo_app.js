@@ -51,7 +51,10 @@ function createNewTodoItem(toDo) {
 function getKeysFromLocalStorage() {
     const storageLength = localStorage.length
     for (let i = 0; i < storageLength; ++i) {
-        JSON.parse(localStorage.getItem(localStorage.key(i)));
+        const key = i;
+        const todo = JSON.parse(localStorage.getItem(key));
+        if (todo === null) return;
+        createNewTodoItem(todo);
     }
 }
 
