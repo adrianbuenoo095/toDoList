@@ -39,7 +39,7 @@ function newItem(event) {
         return;
     }
 
-    toDosList.push(toDoItem);
+    console.log(toDosList.push(toDoItem));
     addToDosToLocalStorage();
 }
 
@@ -58,11 +58,17 @@ function getKeysFromLocalStorage() {
     }
 }
 
+function isDuplicate(currentToDo) {
+    return toDosList.some((toDo) => toDo.textContent === currentToDo);
+}
+
+
 function addToDosToLocalStorage() {
-    const uniqueKey = 0;
+    let uniqueKey = 0;
     for (const toDo of toDosList) {
         uniqueKey++;
         localStorage.setItem(uniqueKey, JSON.stringify(toDo))
+        if (isDuplicate(toDo)) return;
         createNewTodoItem(toDo);
     }
 };
