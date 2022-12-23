@@ -6,7 +6,6 @@
 // * Add a search bar
 // * Add an error below the input field if the user does not enter a valid toDO
 
-
 window.onload = getKeysFromLocalStorage;
 
 const todoInput = document.querySelector(".inputItem");
@@ -38,7 +37,6 @@ function newItem(event) {
         alert("Please enter a valid toDo");
         return;
     }
-
     console.log(toDosList.push(toDoItem));
     addToDosToLocalStorage();
 }
@@ -61,7 +59,6 @@ function getKeysFromLocalStorage() {
 function isDuplicate(currentToDo) {
     return toDosList.some((toDo) => toDo.textContent === currentToDo);
 }
-
 
 function addToDosToLocalStorage() {
     let uniqueKey = 0;
