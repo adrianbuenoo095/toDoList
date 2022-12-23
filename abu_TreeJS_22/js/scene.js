@@ -1,6 +1,8 @@
+import * as THREE from 'three';
+
 function scene(){
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
 
         renderer.setSize(window.innerWidth/2, window.innerHeight/2, false); //false: renders in lower resolution. Will render app at half resolution. 
