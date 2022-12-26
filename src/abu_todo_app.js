@@ -57,14 +57,16 @@ function getKeysFromLocalStorage() {
 }
 
 function isDuplicate(currentToDo) {
-    return toDosList.some((toDo) => toDo.textContent === currentToDo);
+    let isItemDuplicate = toDosList.some(element => element.innerHTML === currentToDo.innerHTML);
+    console.error(`Duplicate item: ${isItemDuplicate}`);
+    return isItemDuplicate;
 }
 
 function addToDosToLocalStorage() {
-    let uniqueKey = 0;
     for (const toDo of toDosList) {
-        uniqueKey++;
+        let uniqueKey = 0;
         localStorage.setItem(uniqueKey, JSON.stringify(toDo))
+        uniqueKey++;
         if (isDuplicate(toDo)) return;
         createNewTodoItem(toDo);
     }
