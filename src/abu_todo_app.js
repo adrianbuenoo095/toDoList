@@ -1,11 +1,3 @@
-//.some() method to check if the toDo is already in the list
-// * Add a filter to show Completed and in progress
-// * Add a greeting
-// * Add a list of toDOs for example for work or school.
-// * Responsive for web and mobile
-// * Add a search bar
-// * Add an error below the input field if the user does not enter a valid toDO
-
 window.onload = getKeysFromLocalStorage;
 
 const todoInput = document.querySelector(".inputItem");
@@ -47,13 +39,11 @@ function createNewTodoItem(toDo) {
 }
 
 function getKeysFromLocalStorage() {
-    const storageLength = localStorage.length
-    for (let i = 1; i < storageLength; ++i) {
-        const key = i;
-        const todo = JSON.parse(localStorage.getItem(key));
-        if (todo === null) return;
-        createNewTodoItem(todo);
-    }
+    if (!localStorage.length) return;
+    let toDoList = JSON.parse(localStorage.getItem("toDosList"));
+    toDoList.forEach(element => {
+        createNewTodoItem(element);
+    });
 }
 
 function isDuplicate(currentToDo) {
@@ -63,13 +53,7 @@ function isDuplicate(currentToDo) {
 }
 
 function addToDosToLocalStorage() {
-    for (const toDo of toDosList) {
-        let uniqueKey = 0;
-        localStorage.setItem(uniqueKey, JSON.stringify(toDo))
-        uniqueKey++;
-        if (isDuplicate(toDo)) return;
-        createNewTodoItem(toDo);
-    }
+    let testing = localStorage.setItem("toDosList", JSON.stringify(toDosList));
 };
 
 //#region Get item template
