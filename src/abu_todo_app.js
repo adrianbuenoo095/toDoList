@@ -1,4 +1,4 @@
-window.onload = getKeysFromLocalStorage;
+window.onload = retrieveToDosFromLocalStorage;
 
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
@@ -31,6 +31,7 @@ function newItem(event) {
     }
     console.log(toDosList.push(toDoItem));
     addToDosToLocalStorage();
+    createNewTodoItem(toDoItem);
 }
 
 function createNewTodoItem(toDo) {
@@ -38,7 +39,7 @@ function createNewTodoItem(toDo) {
     todoInput.value = "";
 }
 
-function getKeysFromLocalStorage() {
+function retrieveToDosFromLocalStorage() {
     if (!localStorage.length) return;
     let toDoList = JSON.parse(localStorage.getItem("toDosList"));
     toDoList.forEach(element => {
@@ -52,7 +53,7 @@ function isDuplicate(currentToDo) {
     return isItemDuplicate;
 }
 
-function addToDosToLocalStorage() {
+function addToDosToLocalStorage(){
     let testing = localStorage.setItem("toDosList", JSON.stringify(toDosList));
 };
 
