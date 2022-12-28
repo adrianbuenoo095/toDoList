@@ -30,7 +30,7 @@ function newItem(event) {
         return;
     }
     console.log(toDosList.push(toDoItem));
-    addToDosToLocalStorage();
+    console.log(addToDosToLocalStorage());
     createNewTodoItem(toDoItem);
 }
 
@@ -47,16 +47,17 @@ function retrieveToDosFromLocalStorage() {
     }
 }
 
-function isTodoDuplicated(currentToDo) {
+function isToDoDuplicated(currentToDo) {
     let isItemDuplicate = toDosList.some(element => element.innerHTML === currentToDo.innerHTML);
     console.error(`Duplicate item: ${isItemDuplicate}`);
     return isItemDuplicate;
 }
 
 function addToDosToLocalStorage() {
-    return toDosList.map((toDo, index) => {
+    let toDosAddedToLocaLStorage = toDosList.map((toDo, index) => {
         localStorage.setItem(index, JSON.stringify(toDo));
     });
+    return toDosAddedToLocaLStorage;
 }
 
 //#region Get item template
