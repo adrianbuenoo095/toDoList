@@ -41,10 +41,10 @@ function createNewTodoItem(toDo) {
 
 function retrieveToDosFromLocalStorage() {
     if (!localStorage.length) return;
-    let toDoList = JSON.parse(localStorage.getItem("toDosList"));
-    toDoList.forEach(element => {
-        createNewTodoItem(element);
-    });
+    for(let i = 0; i < localStorage.length; i++) {
+        let toDo = JSON.parse(localStorage.getItem(i));
+        createNewTodoItem(toDo);
+    }
 }
 
 function isTodoDuplicated(currentToDo) {
@@ -53,9 +53,11 @@ function isTodoDuplicated(currentToDo) {
     return isItemDuplicate;
 }
 
-function addToDosToLocalStorage(){
-    let testing = localStorage.setItem("toDosList", JSON.stringify(toDosList));
-};
+function addToDosToLocalStorage() {
+    return toDosList.map((toDo, index) => {
+        localStorage.setItem(index, JSON.stringify(toDo));
+    });
+}
 
 //#region Get item template
 function getItemTemplate(contentValue) {
