@@ -23,7 +23,11 @@
     function Main(props) {
       return (
         <section>
-          <img height={400} src="https://images.pexels.com/photos/7772198/pexels-photo-7772198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          <img
+            height={400}
+            src="img/pexels_mexican_food.jpeg"
+            alt= "A good plate of mexican food"
+          />
           <ul>
             {props.dishes.map((dish) => (
               <li key={dish.id}> {dish.title}</li>
