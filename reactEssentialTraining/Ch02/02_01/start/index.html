@@ -23,9 +23,10 @@
     function Main(props) {
       return (
         <section>
+          <img height={400} src="https://images.pexels.com/photos/7772198/pexels-photo-7772198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
           <ul>
             {props.dishes.map((dish) => (
-              <li key={dish.id}>{dish.title}</li>
+              <li key={dish.id}> {dish.title}</li>
             ))}
           </ul>
         </section>
@@ -54,18 +55,18 @@
     );
 
     function App() {
-        return (
-          <div>
-            <Header name="Adrian" />
-            <Main adjective="amazing" dishes={dishesObject} />
-            <Footer year={new Date().getFullYear()} />
-          </div>
-        )
-      }
+      return (
+        <div>
+          <Header name="Adrian" />
+          <Main adjective="amazing" dishes={dishesObject} />
+          <Footer year={new Date().getFullYear()} />
+        </div>
+      )
+    }
     ReactDOM.render(
-        <App />,
-        document.getElementById("root")
-      );
+      <App />,
+      document.getElementById("root")
+    );
   </script>
 </body>
 
