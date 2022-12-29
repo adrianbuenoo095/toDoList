@@ -50,9 +50,7 @@ function retrieveToDosFromLocalStorage() {
 }
 
 function isToDoDuplicated(currentToDo) {
-    let isItemDuplicate = toDosList.some(element => element.innerHTML === currentToDo.innerHTML);
-    console.error(`Duplicate item: ${isItemDuplicate}`);
-    return isItemDuplicate;
+    return toDosList.some(element => element.innerHTML === currentToDo.innerHTML) ? true : false;
 }
 
 function addToDosToLocalStorage() {
