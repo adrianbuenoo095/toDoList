@@ -16,7 +16,7 @@ function deleteItem(event) {
     for (let i = 0; i < item.length; i++) {
         if (item[i].contains(event.target)) {
             todoList.removeChild(item[i]);
-            localStorage.removeItem("toDOs");
+            localStorage.removeItem(i);
         }
     }
 }
