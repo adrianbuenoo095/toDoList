@@ -44,7 +44,7 @@ function retrieveToDosFromLocalStorage() {
     if (!localStorage.length) return;
     for (let i = 0; i < localStorage.length; i++) {
         let toDo = JSON.parse(localStorage.getItem(i));
-        if(toDo === null) return;
+        if (toDo === null) return;
         createNewTodoItem(toDo);
     }
 }
