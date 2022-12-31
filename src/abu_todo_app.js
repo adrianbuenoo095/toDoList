@@ -29,10 +29,13 @@ function newItem(event) {
         alert("Please enter a valid toDo");
         return;
     }
-
-    console.log(toDosList.push(toDoItem));
-    console.log(addToDosToLocalStorage());
+    turnArrayIntoObject(toDoItem);
     createNewTodoItem(toDoItem);
+}
+
+function turnArrayIntoObject(toDoItem) {
+    toDosList.push(toDoItem);
+
 }
 
 function createNewTodoItem(toDo) {
@@ -41,7 +44,7 @@ function createNewTodoItem(toDo) {
 }
 
 function retrieveToDosFromLocalStorage() {
-    if (!localStorage.length) return;
+    if (localStorage.length === null) return;
     for (let i = 0; i < localStorage.length; i++) {
         let toDo = JSON.parse(localStorage.getItem(i));
         if (toDo === null) return;
