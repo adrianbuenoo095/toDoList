@@ -35,16 +35,6 @@ function newItem(event) {
     addToDosToLocalStorage(toDoItem);
 }
 
-// function turnArrayIntoObject(toDoItem) {
-//     let objectArray = {
-//         id: new Date(),
-//         name: toDoItem,
-//         isCompleted: false
-//     };
-
-//     return toDosList.push(objectArray);
-// }
-
 function createNewTodoItem(toDo) {
     todoList.insertAdjacentHTML("beforeend", toDo);
     todoInput.value = "";
@@ -53,6 +43,7 @@ function createNewTodoItem(toDo) {
 function retrieveToDosFromLocalStorage() {
     if (localStorage.getItem("toDosList") === null) return;
     let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
+
     localStorageList.forEach(toDo => {
         if (toDo === null) return;
         createNewTodoItem(toDo);
@@ -64,15 +55,15 @@ function isToDoDuplicated(currentToDo) {
 }
 
 function addToDosToLocalStorage(toDoItem) {
-    if (localStorage.getItem("toDosList") === null) {
-        toDosList = [];
-    } else {
-        toDosList = JSON.parse(localStorage.getItem("toDosList"));
-    }
-
+    let toDosStoredInlocalStorage = isLocalStorageEmpty();
     toDosList.push(toDoItem);
-
     localStorage.setItem("toDosList", JSON.stringify(toDosList));
+
+}
+
+function isLocalStorageEmpty() {
+    return localStorage.getItem("toDosList") === null ?
+        toDosList = [] : toDosList = JSON.parse(localStorage.getItem("toDosList"));
 }
 
 //#region Get item template
