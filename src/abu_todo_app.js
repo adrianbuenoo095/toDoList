@@ -29,12 +29,20 @@ function newItem(event) {
         alert("Please enter a valid toDo");
         return;
     }
+
     turnArrayIntoObject(toDoItem);
     createNewTodoItem(toDoItem);
+    addToDosToLocalStorage();
 }
 
 function turnArrayIntoObject(toDoItem) {
-    
+    let objectArray = {
+        id: new Date(),
+        name: toDoItem,
+        isCompleted : false
+    };
+
+    return toDosList.push(objectArray) || []; 
 
 
 }
@@ -59,7 +67,8 @@ function isToDoDuplicated(currentToDo) {
 
 function addToDosToLocalStorage() {
     let toDosAddedToLocaLStorage = toDosList.map((toDo, index) => {
-        localStorage.setItem(index, JSON.stringify(toDo));
+        let temp = localStorage.setItem(index, JSON.stringify(toDo));
+        console.log(temp);
     });
     return toDosAddedToLocaLStorage;
 }
