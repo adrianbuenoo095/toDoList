@@ -3,7 +3,7 @@ window.onload = retrieveToDosFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const toDosList = [];
+let toDosList;
 
 //Event Listener
 // let deleteTrash = document.querySelectorAll(".fas.fa-trash");
@@ -30,20 +30,20 @@ function newItem(event) {
         return;
     }
 
-    turnArrayIntoObject(toDoItem);
+    // turnArrayIntoObject(toDoItem);
     createNewTodoItem(toDoItem);
-    addToDosToLocalStorage();
+    addToDosToLocalStorage(toDoItem);
 }
 
-function turnArrayIntoObject(toDoItem) {
-    let objectArray = {
-        id: new Date(),
-        name: toDoItem,
-        isCompleted: false
-    };
+// function turnArrayIntoObject(toDoItem) {
+//     let objectArray = {
+//         id: new Date(),
+//         name: toDoItem,
+//         isCompleted: false
+//     };
 
-    return toDosList.push(objectArray);
-}
+//     return toDosList.push(objectArray);
+// }
 
 function createNewTodoItem(toDo) {
     todoList.insertAdjacentHTML("beforeend", toDo);
@@ -51,26 +51,28 @@ function createNewTodoItem(toDo) {
 }
 
 function retrieveToDosFromLocalStorage() {
-    if (localStorage.length === null) return;
-    for (let i = 0; i < localStorage.length; i++) {
-        let toDo = JSON.parse(localStorage.getItem(i));
+    if (localStorage.getItem("toDosList") === null) return;
+    let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
+    localStorageList.forEach(toDo => {
         if (toDo === null) return;
         createNewTodoItem(toDo);
-    }
+    });
 }
 
 function isToDoDuplicated(currentToDo) {
     return toDosList.some(element => element === currentToDo) ? true : false;
 }
 
-function addToDosToLocalStorage() {
-    if (!localStorage.getItem("toDosList")) {
-        console.log(`This is a temp ${index}`)
+function addToDosToLocalStorage(toDoItem) {
+    if (localStorage.getItem("toDosList") === null) {
         toDosList = [];
+    } else {
+        toDosList = JSON.parse(localStorage.getItem("toDosList"));
     }
 
-    let temp = localStorage.setItem(index, JSON.stringify(toDo));
-    console.log(temp);
+    toDosList.push(toDoItem);
+
+    localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
 
 //#region Get item template
