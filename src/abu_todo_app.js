@@ -42,9 +42,7 @@ function turnArrayIntoObject(toDoItem) {
         isCompleted : false
     };
 
-    return toDosList.push(objectArray) || []; 
-
-
+    return toDosList.push(objectArray); 
 }
 
 function createNewTodoItem(toDo) {
@@ -66,9 +64,13 @@ function isToDoDuplicated(currentToDo) {
 }
 
 function addToDosToLocalStorage() {
-    let toDosAddedToLocaLStorage = toDosList.map((toDo, index) => {
-        let temp = localStorage.setItem(index, JSON.stringify(toDo));
-        console.log(temp);
+if(!localStorage.getItem(index)){
+        console.log(`This is a temp ${index}`)
+        toDosList = [];
+    }
+
+    let temp = localStorage.setItem(index, JSON.stringify(toDo));
+    console.log(temp);
     });
     return toDosAddedToLocaLStorage;
 }
