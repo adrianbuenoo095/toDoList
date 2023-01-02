@@ -39,10 +39,10 @@ function turnArrayIntoObject(toDoItem) {
     let objectArray = {
         id: new Date(),
         name: toDoItem,
-        isCompleted : false
+        isCompleted: false
     };
 
-    return toDosList.push(objectArray); 
+    return toDosList.push(objectArray);
 }
 
 function createNewTodoItem(toDo) {
@@ -64,15 +64,13 @@ function isToDoDuplicated(currentToDo) {
 }
 
 function addToDosToLocalStorage() {
-if(!localStorage.getItem(index)){
+    if (!localStorage.getItem("toDosList")) {
         console.log(`This is a temp ${index}`)
         toDosList = [];
     }
 
     let temp = localStorage.setItem(index, JSON.stringify(toDo));
     console.log(temp);
-    });
-    return toDosAddedToLocaLStorage;
 }
 
 //#region Get item template
