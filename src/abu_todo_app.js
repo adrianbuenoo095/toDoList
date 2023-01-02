@@ -30,9 +30,8 @@ function newItem(event) {
         return;
     }
 
-    // turnArrayIntoObject(toDoItem);
     createNewTodoItem(toDoItem);
-    addToDosToLocalStorage(toDoItem);
+    addToDosToLocalStorage(toDoItem)
 }
 
 function createNewTodoItem(toDo) {
