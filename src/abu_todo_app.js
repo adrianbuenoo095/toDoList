@@ -34,7 +34,8 @@ function newItem(event) {
 }
 
 function turnArrayIntoObject(toDoItem) {
-    toDosList.push(toDoItem);
+    
+
 
 }
 
