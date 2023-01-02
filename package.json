@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Todo Site",
   "main": "app.js",
-  "type":"module" ,
+  "type": "module",
   "author": "Adrian Bueno",
   "scripts": {
     "build": "webpack --config webpack.config.js"
@@ -15,6 +15,7 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
+    "jquery": "^3.6.3",
     "three": "^0.148.0"
   }
 }
