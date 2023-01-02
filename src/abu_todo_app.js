@@ -53,7 +53,7 @@ function retrieveToDosFromLocalStorage() {
 }
 
 function isToDoDuplicated(currentToDo) {
-    return toDosList.some(element => element.innerHTML === currentToDo.innerHTML) ? true : false;
+    return toDosList.some(element => element === currentToDo) ? true : false;
 }
 
 function addToDosToLocalStorage() {
