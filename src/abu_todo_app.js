@@ -16,7 +16,7 @@ function deleteItem(event) {
     for (let i = 0; i < item.length; i++) {
         if (item[i].contains(event.target)) {
             todoList.removeChild(item[i]);
-            localStorage.removeItem(i);
+            localStorage.removeItem(i); // Use setItem instead of removing from the localstorage
         }
     }
 }
@@ -50,15 +50,15 @@ function retrieveToDosFromLocalStorage() {
 }
 
 function addToDosToLocalStorage(toDoItem) {
-    let toDosStoredInlocalStorage = isLocalStorageEmpty(); 
+
+    if (!localStorage.getItem("toDosList")) {
+        toDosList = [];
+    } else {
+        toDosList = JSON.parse(localStorage.getItem("toDosList"));
+    }
+
     toDosList.push(toDoItem);
     localStorage.setItem("toDosList", JSON.stringify(toDosList));
-
-}
-
-function isLocalStorageEmpty() {
-    return localStorage.getItem("toDosList") === null ?
-        toDosList = [] : toDosList = JSON.parse(localStorage.getItem("toDosList"));
 }
 
 //#region Get item template
