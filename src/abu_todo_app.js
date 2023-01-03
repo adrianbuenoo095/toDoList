@@ -12,11 +12,17 @@ todoButton.addEventListener("click", newItem);
 
 //#region Delete item from list
 function deleteItem(event) {
+    if (!localStorage.getItem("toDosList")) {
+        toDosList = [];
+    } else {
+        toDosList = JSON.parse(localStorage.getItem("toDosList"));
+    }
     const item = todoList.children;
     for (let i = 0; i < item.length; i++) {
         if (item[i].contains(event.target)) {
+            toDosList.splice(item[i], 1);
             todoList.removeChild(item[i]);
-            localStorage.removeItem(i); // Use setItem instead of removing from the localstorage
+            localStorage.setItem("toDosList", JSON.stringify(toDosList)); // Use setItem instead of removing from the localstorage
         }
     }
 }
@@ -40,7 +46,7 @@ function createNewTodoItem(toDo) {
 }
 
 function retrieveToDosFromLocalStorage() {
-    if (localStorage.getItem("toDosList") === null) return;
+    if (!localStorage.getItem("toDosList")) return;
     let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
 
     localStorageList.forEach(toDo => {
@@ -50,7 +56,6 @@ function retrieveToDosFromLocalStorage() {
 }
 
 function addToDosToLocalStorage(toDoItem) {
-
     if (!localStorage.getItem("toDosList")) {
         toDosList = [];
     } else {
