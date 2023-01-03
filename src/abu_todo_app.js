@@ -49,10 +49,6 @@ function retrieveToDosFromLocalStorage() {
     });
 }
 
-function isToDoDuplicated(currentToDo) {
-    return toDosList.some(element => element === currentToDo) ? true : false;
-}
-
 function addToDosToLocalStorage(toDoItem) {
     let toDosStoredInlocalStorage = isLocalStorageEmpty();
     toDosList.push(toDoItem);
