@@ -50,7 +50,7 @@ function retrieveToDosFromLocalStorage() {
 }
 
 function addToDosToLocalStorage(toDoItem) {
-    let toDosStoredInlocalStorage = isLocalStorageEmpty();
+    let toDosStoredInlocalStorage = isLocalStorageEmpty(); 
     toDosList.push(toDoItem);
     localStorage.setItem("toDosList", JSON.stringify(toDosList));
 
