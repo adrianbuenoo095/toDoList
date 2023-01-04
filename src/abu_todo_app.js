@@ -13,8 +13,8 @@ todoButton.addEventListener("click", newItem);
 //#region Delete item from list
 function deleteItem(event) {
     let toDosList = isLocalStorageEmpty();
-
     const item = todoList.childNodes;
+
     for (let index = 0; index < item.length; index++) {
         if (item[index].contains(event.target)) {
             toDosList.splice(item[index], 1);
@@ -26,6 +26,7 @@ function deleteItem(event) {
 }
 function isLocalStorageEmpty() {
     let toDosList;
+
     if (!localStorage.getItem("toDosList")) {
         toDosList = [];
     } else {
