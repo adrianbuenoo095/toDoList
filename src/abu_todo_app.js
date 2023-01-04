@@ -17,11 +17,14 @@ function deleteItem(event) {
     } else {
         toDosList = JSON.parse(localStorage.getItem("toDosList"));
     }
-    const item = todoList.children;
-    for (let i = 0; i < item.length; i++) {
-        if (item[i].contains(event.target)) {
-            toDosList.splice(item[i], 1);
-            todoList.removeChild(item[i]);
+
+    let index;
+    let toDosItems = todoList.children;
+    for (let i = 0; i < toDosItems.length; i++) {
+        index = toDosItems.at(i)
+        if (index.contains(event.target)) {
+            toDosList.splice(index, 1);
+            todoList.removeChild(index);
             localStorage.setItem("toDosList", JSON.stringify(toDosList)); // Use setItem instead of removing from the localstorage
         }
     }
