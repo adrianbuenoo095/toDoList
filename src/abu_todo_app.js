@@ -17,14 +17,12 @@ function deleteItem(event) {
     } else {
         toDosList = JSON.parse(localStorage.getItem("toDosList"));
     }
-
     let index;
-    let toDosItems = todoList.children;
-    for (let i = 0; i < toDosItems.length; i++) {
-        index = toDosItems.at(i)
-        if (index.contains(event.target)) {
-            toDosList.splice(index, 1);
-            todoList.removeChild(index);
+    const item = todoList.childNodes;
+    for (let index = 0; index < item.length; index++) {
+        if (item[index].contains(event.target)) {
+            toDosList.splice(item[index], 1);
+            todoList.removeChild(item[index]);
             localStorage.setItem("toDosList", JSON.stringify(toDosList)); // Use setItem instead of removing from the localstorage
         }
     }
@@ -79,12 +77,12 @@ function getItemTemplate(contentValue) {
                 <div class="interactions" >
                     <div class="completeTask">
                         <button class="complete-btn">
-                            <i class="fas fa-check"></i>
+                            <index class="fas fa-check"></index>
                         </button>
                     </div>
                     <div class="deleteTask">
                         <button class="trash-btn">
-                            <i class="fas fa-trash"></i>
+                            <index class="fas fa-trash"></index>
                         </button>
                     </div>
                 </div>
