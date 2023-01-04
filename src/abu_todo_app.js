@@ -17,7 +17,7 @@ function deleteItem(event) {
     } else {
         toDosList = JSON.parse(localStorage.getItem("toDosList"));
     }
-    
+
     const item = todoList.childNodes;
     for (let index = 0; index < item.length; index++) {
         if (item[index].contains(event.target)) {
