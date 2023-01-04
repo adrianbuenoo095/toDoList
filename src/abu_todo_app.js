@@ -24,6 +24,8 @@ function deleteItem(event) {
         }
     }
 }
+//#endregion
+
 function isLocalStorageEmpty() {
     let toDosList;
 
@@ -35,8 +37,6 @@ function isLocalStorageEmpty() {
 
     return toDosList;
 }
-
-//#endregion
 
 function newItem(event) {
     event.preventDefault();
