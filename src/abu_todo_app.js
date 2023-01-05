@@ -17,8 +17,8 @@ function deleteItem(event) {
 
     for (let index = 0; index < item.length; index++) {
         if (item[index].contains(event.target)) {
-            console.log(` this is a new array ${toDosList.splice(item[index], 1)}`);
-            console.log(`this the item that was removed from todolist ${todoList.removeChild(item[index])}`);
+            toDosList.splice(index, 1);
+            todoList.removeChild(item[index]);
             localStorage.setItem("toDosList", JSON.stringify(toDosList));
             return;
         }
