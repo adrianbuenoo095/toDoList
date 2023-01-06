@@ -3,16 +3,19 @@ window.onload = retrieveToDosFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const deleteTrash = document.querySelectorAll(".fas.fa-trash");
 
 //Event Listener
-todoList.addEventListener("click", deleteItem);
+todoList.addEventListener("click", itereateThrouNodeList);
 todoButton.addEventListener("click", newItem, false);
 
-deleteTrash.forEach(trashItem => {
-    if ((trashItem) === null) return;
-    trashItem.addEventListener("click", deleteItem);
-});
+function itereateThrouNodeList() {
+    let deleteTrash = document.querySelectorAll(".fas.fa-trash");
+
+    deleteTrash.forEach(trashItem => {
+        if ((trashItem) === null) return;
+        trashItem.addEventListener("click", deleteItem);
+    });
+}
 
 //#region Delete item from list
 function deleteItem(event) {
