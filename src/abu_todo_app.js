@@ -7,14 +7,12 @@ const deleteTrash = document.querySelectorAll(".fas.fa-trash");
 
 //Event Listener
 todoList.addEventListener("click", deleteItem);
-todoButton.addEventListener("click", newItem);
+todoButton.addEventListener("click", newItem, false);
 
-// function iterateThroughtNodelist(event) {
-//     deleteTrash.forEach(trashItem => {
-//         if ((trashItem) === null) return;
-//         trashItem.addEventListener("click", deleteItem(event));
-//     });
-// }
+deleteTrash.forEach(trashItem => {
+    if ((trashItem) === null) return;
+    trashItem.addEventListener("click", deleteItem);
+});
 
 //#region Delete item from list
 function deleteItem(event) {
