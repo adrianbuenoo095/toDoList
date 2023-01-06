@@ -3,10 +3,10 @@ window.onload = retrieveToDosFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const deleteTrash = document.querySelector(".fa-trash");
 
 
 //Event Listener
-let deleteTrash = document.querySelector(".fa-trash");
 
 
 todoList.addEventListener("click", deleteItem);
