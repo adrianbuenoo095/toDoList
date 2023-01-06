@@ -5,10 +5,10 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 
 //Event Listener
-todoList.addEventListener("click", itereateThrouNodeList);
+todoList.addEventListener("click", iterateThrouNodeList);
 todoButton.addEventListener("click", newItem, false);
 
-function itereateThrouNodeList() {
+function iterateThrouNodeList() {
     let deleteTrash = document.querySelectorAll(".fas.fa-trash");
 
     deleteTrash.forEach(trashItem => {
