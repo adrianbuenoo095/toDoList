@@ -6,9 +6,16 @@ const todoList = document.querySelector(".todo-list");
 
 
 //Event Listener
-// let deleteTrash = document.querySelectorAll(".fas.fa-trash");
+let deleteTrash = !document.querySelectorAll(".fas.fa-trash") ? [] : retrieveToDosFromLocalStorage ;
+
+
 todoList.addEventListener("click", deleteItem);
 todoButton.addEventListener("click", newItem);
+
+
+deleteTrash.forEach((item) => {
+    item.addEventListener("click", deleteItem)
+});
 
 //#region Delete item from list
 function deleteItem(event) {
