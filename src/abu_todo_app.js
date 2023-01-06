@@ -6,15 +6,17 @@ const todoList = document.querySelector(".todo-list");
 
 
 //Event Listener
-let deleteTrash = !document.querySelectorAll(".fas.fa-trash") ? [] : retrieveToDosFromLocalStorage ;
+let deleteTrash = document.querySelector(".fa-trash");
 
 
 todoList.addEventListener("click", deleteItem);
 todoButton.addEventListener("click", newItem);
 
-
-deleteTrash.forEach((item) => {
-    item.addEventListener("click", deleteItem)
+deleteTrash.forEach(trashItem => {
+    if (trashItem === null) return;
+    trashItem.addEventListener("click", function () {
+        console.log("hello world");
+    });
 });
 
 //#region Delete item from list
@@ -41,7 +43,6 @@ function isLocalStorageEmpty() {
     } else {
         toDosList = JSON.parse(localStorage.getItem("toDosList"));
     }
-
     return toDosList;
 }
 
