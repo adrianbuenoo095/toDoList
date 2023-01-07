@@ -3,15 +3,14 @@ window.onload = retrieveToDosFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const completeTaskCheck = document.querySelectorAll(".fa-check");
+const completeTasksCheck = document.querySelectorAll(".fa-check");
 
 //Event Listener
-todoList.addEventListener("click", iterateThrouNodeList);
+todoList.addEventListener("click", iterateThroughNodeList);
 todoButton.addEventListener("click", newItem);
 
-function iterateThrouNodeList() {
+function iterateThroughNodeList() {
     let deleteTrash = document.querySelectorAll(".fas.fa-trash");
-
     deleteTrash.forEach(trashItem => {
         if ((trashItem) === null) return;
         trashItem.addEventListener("click", deleteItem);
