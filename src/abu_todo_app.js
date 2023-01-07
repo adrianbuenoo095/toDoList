@@ -66,7 +66,6 @@ function retrieveToDosFromLocalStorage() {
     });
 }
 
-
 function createNewTodoItem(toDo) {
     todoList.insertAdjacentHTML("beforeend", toDo);
     todoInput.value = "";
