@@ -13,12 +13,12 @@ function iterateThroughNodeList() {
     let deleteTrash = document.querySelectorAll(".fas.fa-trash");
     deleteTrash.forEach(trashItem => {
         if ((trashItem) === null) return;
-        trashItem.addEventListener("click", deleteItem);
+        trashItem.addEventListener("click", deleteItemsFromlocalStorage);
     });
 }
 
 //#region Delete item from list
-function deleteItem(event) {
+function deleteItemsFromlocalStorage(event) {
     let toDosList = isLocalStorageEmpty();
     const item = todoList.childNodes;
 
