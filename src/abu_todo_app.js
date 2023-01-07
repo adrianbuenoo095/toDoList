@@ -7,7 +7,7 @@ const completeTaskCheck = document.querySelectorAll(".fa-check");
 
 //Event Listener
 todoList.addEventListener("click", iterateThrouNodeList);
-todoButton.addEventListener("click", newItem, false);
+todoButton.addEventListener("click", newItem);
 
 function iterateThrouNodeList() {
     let deleteTrash = document.querySelectorAll(".fas.fa-trash");
