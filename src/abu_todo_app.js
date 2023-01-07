@@ -3,6 +3,7 @@ window.onload = retrieveToDosFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const completeTaskCheck = document.querySelectorAll(".fa-check");
 
 //Event Listener
 todoList.addEventListener("click", iterateThrouNodeList);
@@ -86,7 +87,7 @@ function getItemTemplate(contentValue) {
                     <p>${contentValue}</p> 
                 </div>  
                 <div class="interactions" >
-                    <div class="completeTask">
+                    <div class="completeTaskCheck">
                         <button class="complete-btn">
                             <index class="fas fa-check"></index>
                         </button>
