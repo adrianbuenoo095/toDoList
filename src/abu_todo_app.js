@@ -1,4 +1,4 @@
-window.onload = retrieveToDosFromLocalStorage;
+window.onload = retrieveItemsFromLocalStorage;
 
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
@@ -56,7 +56,7 @@ function isLocalStorageEmpty() {
     return toDosList;
 }
 
-function retrieveToDosFromLocalStorage() {
+function retrieveItemsFromLocalStorage() {
     if (!localStorage.getItem("toDosList")) return;
     let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
 
