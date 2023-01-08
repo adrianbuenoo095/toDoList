@@ -5,7 +5,7 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const completeTasksCheck = document.querySelectorAll(".fa-check");
 
-//Event Listener
+//Event Listeners
 todoList.addEventListener("click", iterateThroughNodeList);
 todoButton.addEventListener("click", addNewItems);
 
