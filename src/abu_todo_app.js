@@ -5,17 +5,17 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const completeTasksCheck = document.querySelectorAll(".fa-check");
 
+let [completeIcon, deleteIcon] = [
+  ".fa-check",
+  ".fas.fa-trash" 
+];
+
 //Event Listeners
 todoList.addEventListener("click", iterateThroughNodeList);
 todoButton.addEventListener("click", addNewItems);
 
 function iterateThroughNodeList() {
-  let [completed, deleted] = [
-    ".fa-check",
-    ".fas.fa-trash" 
-  ];
-
-  let deleteIconsTrash = document.querySelectorAll(deleted);
+  let deleteIconsTrash = document.querySelectorAll(deleteIcon);
   deleteIconsTrash.forEach((deleteTrashIcon) => {
     if (deleteTrashIcon === null) return;
     deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage);
