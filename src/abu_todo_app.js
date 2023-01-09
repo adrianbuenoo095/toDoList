@@ -5,7 +5,7 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const completeTasksCheck = document.querySelectorAll(".fa-check");
 
-let [completeIcon, deleteIcon] = [
+const [completeIcon, deleteIcon] = [
   ".fa-check",
   ".fas.fa-trash"
 ];
