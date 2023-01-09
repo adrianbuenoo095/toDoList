@@ -7,14 +7,14 @@ const completeTasksCheck = document.querySelectorAll(".fa-check");
 
 let [completeIcon, deleteIcon] = [
   ".fa-check",
-  ".fas.fa-trash" 
+  ".fas.fa-trash"
 ];
 
 //Event Listeners
-todoList.addEventListener("click", iterateThroughNodeList);
+todoList.addEventListener("click", iterateNodeList);
 todoButton.addEventListener("click", addNewItems);
 
-function iterateThroughNodeList() {
+function iterateNodeList() {
   let deleteIconsTrash = document.querySelectorAll(deleteIcon);
   deleteIconsTrash.forEach((deleteTrashIcon) => {
     if (deleteTrashIcon === null) return;
