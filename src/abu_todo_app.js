@@ -3,12 +3,15 @@ window.onload = retrieveItemsFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const completeTasksCheck = document.querySelectorAll(".fa-check");
 
 const [completeIcon, deleteIcon] = [
   ".fa-check",
   ".fas.fa-trash"
 ];
+
+function temp(){
+  const completeTasksCheck = document.querySelectorAll(completeIcon);
+}
 
 //Event Listeners
 todoList.addEventListener("click", iterateElementsList);
