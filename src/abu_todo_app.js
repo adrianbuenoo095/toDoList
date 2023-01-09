@@ -10,7 +10,12 @@ todoList.addEventListener("click", iterateThroughNodeList);
 todoButton.addEventListener("click", addNewItems);
 
 function iterateThroughNodeList() {
-  let deleteTrash = document.querySelectorAll(".fas.fa-trash");
+  let [completed, deleted] = [
+    ".fa-check",
+    ".fas.fa-trash" 
+  ];
+
+  let deleteTrash = document.querySelectorAll(deleted);
   deleteTrash.forEach((trashItem) => {
     if (trashItem === null) return;
     trashItem.addEventListener("click", deleteItemsFromlocalStorage);
