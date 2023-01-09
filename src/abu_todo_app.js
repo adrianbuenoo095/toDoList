@@ -11,10 +11,10 @@ let [completeIcon, deleteIcon] = [
 ];
 
 //Event Listeners
-todoList.addEventListener("click", iterateNodeList);
+todoList.addEventListener("click", iterateElementsList);
 todoButton.addEventListener("click", addNewItems);
 
-function iterateNodeList() {
+function iterateElementsList() {
   let deleteIconsTrash = document.querySelectorAll(deleteIcon);
   deleteIconsTrash.forEach((deleteTrashIcon) => {
     if (deleteTrashIcon === null) return;
