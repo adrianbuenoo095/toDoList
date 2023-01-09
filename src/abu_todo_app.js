@@ -15,10 +15,10 @@ function iterateThroughNodeList() {
     ".fas.fa-trash" 
   ];
 
-  let deleteTrash = document.querySelectorAll(deleted);
-  deleteTrash.forEach((trashItem) => {
-    if (trashItem === null) return;
-    trashItem.addEventListener("click", deleteItemsFromlocalStorage);
+  let deleteIconsTrash = document.querySelectorAll(deleted);
+  deleteIconsTrash.forEach((deleteTrashIcon) => {
+    if (deleteTrashIcon === null) return;
+    deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage);
   });
 }
 
