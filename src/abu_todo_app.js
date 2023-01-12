@@ -9,17 +9,8 @@ const [completeIcon, deleteIcon] = [
     ".fas.fa-trash"
 ];
 
-function iterateElementsCheckIcons() {
-    const completeTasksCheck = document.querySelectorAll(completeIcon);
-    completeTasksCheck.forEach((check) => {
-        if (!check) return;
-        check.addEventListener("click", () => console.log(`this is a test ${check}`))
-    });
-}
-
 //Event Listeners
 todoList.addEventListener("click", iterateElementsList);
-todoList.addEventListener("click", iterateElementsCheckIcons)
 todoButton.addEventListener("click", addNewItems);
 
 function iterateElementsList() {
