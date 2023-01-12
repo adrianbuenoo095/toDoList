@@ -1,5 +1,3 @@
-const { ConcatenationScope } = require("webpack");
-
 window.onload = retrieveItemsFromLocalStorage;
 
 const todoInput = document.querySelector(".inputItem");
