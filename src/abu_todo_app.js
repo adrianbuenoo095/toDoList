@@ -46,7 +46,7 @@ function addNewItems(event) {
     }
 
     createNewTodoItem(toDoItem);
-    addToDosToLocalStorage(toDoItem);
+    addTodosToLocalStorage(toDoItem);
 }
 
 function isLocalStorageEmpty() {
@@ -75,7 +75,7 @@ function createNewTodoItem(toDo) {
     todoInput.value = "";
 }
 
-function addToDosToLocalStorage(toDoItem) {
+function addTodosToLocalStorage(toDoItem) {
     let toDosList = isLocalStorageEmpty();
 
     toDosList.push(toDoItem);
