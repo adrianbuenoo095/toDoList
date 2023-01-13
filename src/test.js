@@ -1,16 +1,16 @@
-class Dictionary {
-    constructor(wordsArray) {
-        this.dict = wordsArray;
+function test() {
+    let objt1 = {
+        x: 43,
+        y: "Hello World",
+        w: function () {
+            return this.x;
+        }
     }
-
-    isInDict(word) {
-        return this.dict.some((dictWird) => {
-            const regexTemplete = word.replace('*', '.');
-            const regex = new RegExp(`^${regexTemplete}`);
-            return regex.test(dictWird);
-        })
-    }
+    let {x, y, w} = objt1;
+    console.log(y); // 43
+    console.log(x); // 43
+    return objt1.w();
 }
 
-const test = new Dictionary(['cat', 'car', 'bar'])
-console.log(test.isInDict('cat'));
+let testing = test()
+console.log(testing); //43
