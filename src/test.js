@@ -5,7 +5,7 @@ class Dictionary {
 
     isInDict(word) {
         return this.dict.some((dictWird) => {
-            const regexTemplete = word.replaceAll('*', '.');
+            const regexTemplete = word.replace('*', '.');
             const regex = new RegExp(`^${regexTemplete}`);
             return regex.test(dictWird);
         })
