@@ -8,7 +8,7 @@ let completeCheckIcon = document.querySelectorAll(".fas.fa-trash");
 
 //Event Listeners
 
-deleteTrashIcon.forEach((trashIcon)=>{
+deleteTrashIcon.forEach((trashIcon) => {
     if (trashIcon === null) return;
     trashIcon.addEventListener("click", deleteItemsFromlocalStorage); // this is does not work. 
 });
