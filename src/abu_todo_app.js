@@ -4,7 +4,7 @@ const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 
-const [completeIcon, deleteIcon] = [
+const icons = [
     ".fa-check",
     ".fas.fa-trash"
 ];
@@ -14,10 +14,12 @@ todoList.addEventListener("click", iterateElementsList);
 todoButton.addEventListener("click", addNewItems);
 
 function iterateElementsList() {
-    let deleteIconsTrash = document.querySelectorAll(deleteIcon);
-    deleteIconsTrash.forEach((deleteTrashIcon) => {
-        if (deleteTrashIcon === null) return;
-        deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage);
+    icons.forEach((element) => {
+        let deletiIconsTrash = document.querySelectorAll(element);
+        deletiIconsTrash.forEach((deleteTrashIcon) => {
+            if (deleteTrashIcon === null) return;
+            deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage);
+        });
     });
 }
 
