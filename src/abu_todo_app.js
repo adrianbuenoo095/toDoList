@@ -3,27 +3,20 @@ window.onload = retrieveItemsFromLocalStorage;
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-
-const [completeTaskCheck, deleteTaskCheck] = [
-    ".fa-check",
-    ".fas.fa-trash"
-];
+let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
+let completeCheckIcon = document.querySelectorAll(".fas.fa-trash");
 
 //Event Listeners
-todoList.addEventListener("click", iterateAllTrashIcons);
-todoButton.addEventListener("click", addNewItems);
 
-function iterateAllTrashIcons() {
-    let deleteIconsTrash = document.querySelectorAll(deleteTaskCheck);
-    deleteIconsTrash.forEach((deleteTrashIcon) => {
-        if (deleteTrashIcon === null) return;
-        deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage); // this is does not work. 
-    });
-}
+deleteTrashIcon.forEach((trashIcon)=>{
+    if (trashIcon === null) return;
+    trashIcon.addEventListener("click", deleteItemsFromlocalStorage); // this is does not work. 
+});
+
+todoButton.addEventListener("click", addNewItems);
 
 //#region Delete item from list
 function deleteItemsFromlocalStorage(event) {
-    event.preventDefault();
     let toDosList = isLocalStorageEmpty();
     const item = todoList.childNodes;
 
