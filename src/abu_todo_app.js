@@ -18,7 +18,7 @@ function iterateElementsList() {
         let deletiIconsTrash = document.querySelectorAll(element);
         deletiIconsTrash.forEach((deleteTrashIcon) => {
             if (deleteTrashIcon === null) return;
-            deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage);
+            deleteTrashIcon.addEventListener("click", deleteItemsFromlocalStorage); // this is does not work. 
         });
     });
 }
