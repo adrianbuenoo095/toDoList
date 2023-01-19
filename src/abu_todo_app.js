@@ -4,16 +4,16 @@ const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
-let completeCheckIcon = document.querySelectorAll(".fas.fa-trash");
+let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
 
 //Event Listeners
-
 deleteTrashIcon.forEach((trashIcon) => {
+    console.log(trashIcon);
     if (trashIcon === null) return;
-    trashIcon.addEventListener("click", deleteItemsFromlocalStorage); // this is does not work. 
+    trashIcon.addEventListener('click', () => { console.log("hello") }); // this is does not work. 
 });
 
-todoButton.addEventListener("click", addNewItems);
+todoButton.addEventListener('click', addNewItems);
 
 //#region Delete item from list
 function deleteItemsFromlocalStorage(event) {
