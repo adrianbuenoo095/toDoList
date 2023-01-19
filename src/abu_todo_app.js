@@ -1,87 +1,86 @@
 // window.onload = retrieveItemsFromLocalStorage;
 window.addEventListener("load", function () {
-  const todoInput = document.querySelector(".inputItem");
-  const todoButton = document.querySelector(".todo-button");
-  const todoList = document.querySelector(".todo-list");
-  let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
-  let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
+    const todoInput = document.querySelector(".inputItem");
+    const todoButton = document.querySelector(".todo-button");
+    const todoList = document.querySelector(".todo-list");
+    let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
+    let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
 
-  //Event Listeners
+    //Event Listeners
+    todoButton.addEventListener("click", addNewItems);
 
-  deleteTrashIcon.forEach((trashIcon) => {
-    if (trashIcon === null) return;
-    trashIcon.addEventListener("click", () => {
-      console.log(` helloo world${trashIcon}`);
-    }); // this is does not work.
-  });
-
-  todoButton.addEventListener("click", addNewItems);
-
-  //#region Delete item from list
-  function deleteItemsFromlocalStorage(event) {
-    let toDosList = isLocalStorageEmpty();
-    const item = todoList.childNodes;
-
-    for (let index = 0; index < item.length; index++) {
-      if (item[index].contains(event.target)) {
-        toDosList.splice(index, 1);
-        todoList.removeChild(item[index]);
-        localStorage.setItem("toDosList", JSON.stringify(toDosList));
-        return;
-      }
-    }
-  }
-  //#endregion
-
-  function addNewItems(event) {
-    event.preventDefault();
-    let toDoItem = getItemTemplate(todoInput?.value);
-    if (toDoItem === undefined) {
-      alert("Please enter a valid toDo");
-      return;
-    }
-
-    createNewTodoItem(toDoItem);
-    addTodosToLocalStorage(toDoItem);
-  }
-
-  function isLocalStorageEmpty() {
-    let toDosList;
-
-    if (!localStorage.getItem("toDosList")) {
-      toDosList = [];
-    } else {
-      toDosList = JSON.parse(localStorage.getItem("toDosList"));
-    }
-    return toDosList;
-  }
-
-  function retrieveItemsFromLocalStorage() {
-    if (!localStorage.getItem("toDosList")) return;
-    let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
-
-    localStorageList.forEach((toDo) => {
-      if (toDo === null) return;
-      createNewTodoItem(toDo);
+    deleteTrashIcon.forEach((trashIcon) => {
+        if (trashIcon === null) return;
+        trashIcon.addEventListener("click", () => {
+            console.log(` helloo world${trashIcon}`);
+        }); // this is does not work.
     });
-  }
 
-  function createNewTodoItem(toDo) {
-    todoList.insertAdjacentHTML("beforeend", toDo);
-    todoInput.value = "";
-  }
+    //#region Delete item from list
+    function deleteItemsFromlocalStorage(event) {
+        let toDosList = isLocalStorageEmpty();
+        const item = todoList.childNodes;
 
-  function addTodosToLocalStorage(toDoItem) {
-    let toDosList = isLocalStorageEmpty();
+        for (let index = 0; index < item.length; index++) {
+            if (item[index].contains(event.target)) {
+                toDosList.splice(index, 1);
+                todoList.removeChild(item[index]);
+                localStorage.setItem("toDosList", JSON.stringify(toDosList));
+                return;
+            }
+        }
+    }
+    //#endregion
 
-    toDosList.push(toDoItem);
-    localStorage.setItem("toDosList", JSON.stringify(toDosList));
-  }
+    function addNewItems(event) {
+        event.preventDefault();
+        let toDoItem = getItemTemplate(todoInput?.value);
+        if (toDoItem === undefined) {
+            alert("Please enter a valid toDo");
+            return;
+        }
 
-  //#region Get item template
-  function getItemTemplate(contentValue) {
-    if (contentValue === "") return;
-    return `<li class="todo">
+        createNewTodoItem(toDoItem);
+        addTodosToLocalStorage(toDoItem);
+    }
+
+    function isLocalStorageEmpty() {
+        let toDosList;
+
+        if (!localStorage.getItem("toDosList")) {
+            toDosList = [];
+        } else {
+            toDosList = JSON.parse(localStorage.getItem("toDosList"));
+        }
+        return toDosList;
+    }
+
+    function retrieveItemsFromLocalStorage() {
+        if (!localStorage.getItem("toDosList")) return;
+        let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
+
+        localStorageList.forEach((toDo) => {
+            if (toDo === null) return;
+            createNewTodoItem(toDo);
+        });
+    }
+
+    function createNewTodoItem(toDo) {
+        todoList.insertAdjacentHTML("beforeend", toDo);
+        todoInput.value = "";
+    }
+
+    function addTodosToLocalStorage(toDoItem) {
+        let toDosList = isLocalStorageEmpty();
+
+        toDosList.push(toDoItem);
+        localStorage.setItem("toDosList", JSON.stringify(toDosList));
+    }
+
+    //#region Get item template
+    function getItemTemplate(contentValue) {
+        if (contentValue === "") return;
+        return `<li class="todo">
                     <div class="content">
                         <p>${contentValue}</p> 
                     </div>  
@@ -98,8 +97,8 @@ window.addEventListener("load", function () {
                         </div>
                     </div>
                 </li>`;
-  }
-  //#endregion
+    }
+    //#endregion
 
-  retrieveItemsFromLocalStorage();
+    retrieveItemsFromLocalStorage();
 });
