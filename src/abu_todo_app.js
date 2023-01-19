@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
         if (trashIcon === null) return;
         trashIcon.addEventListener("click", () => {
             console.log(` helloo world${trashIcon}`);
-        }); // this is does not work.
+        });
     });
 
     //#region Delete item from list
