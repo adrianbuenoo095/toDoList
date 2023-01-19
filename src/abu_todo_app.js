@@ -2,7 +2,6 @@ addEventListener("load", (event) => {
     onLoad = retrieveItemsFromLocalStorage();
 });
 
-
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
