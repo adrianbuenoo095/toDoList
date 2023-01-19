@@ -10,10 +10,10 @@ let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
 deleteTrashIcon.forEach((trashIcon) => {
     console.log(trashIcon);
     if (trashIcon === null) return;
-    trashIcon.addEventListener('click', () => { console.log("hello") }); // this is does not work. 
+    trashIcon.addEventListener("click", () => { console.log("hello") }, false); // this is does not work. 
 });
 
-todoButton.addEventListener('click', addNewItems);
+todoButton.addEventListener("click", addNewItems);
 
 //#region Delete item from list
 function deleteItemsFromlocalStorage(event) {
