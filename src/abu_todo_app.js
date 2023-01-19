@@ -20,7 +20,7 @@ function iterateThroughtAllTrashIcons() {
 //#region Delete item from list
 function deleteItemsFromlocalStorage(event) {
     let toDosList = isLocalStorageEmpty();
-    const item = todoList.childNodes;
+    const item = todoList.childNodes; 
 
     for (let index = 0; index < item.length; index++) {
         if (item[index].contains(event.target)) {
