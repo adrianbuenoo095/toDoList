@@ -6,6 +6,7 @@ const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
+let toDosList;
 
 //Event Listeners
 todoButton.addEventListener("click", addNewItems);
@@ -48,8 +49,6 @@ function addNewItems(event) {
 }
 
 function isLocalStorageEmpty() {
-    let toDosList;
-
     if (!localStorage.getItem("toDosList")) {
         toDosList = [];
     } else {
