@@ -1,5 +1,5 @@
 addEventListener("load", (event) => {
-    onLoad = retrieveItemsFromLocalStorage();
+  onLoad = retrieveItemsFromLocalStorage();
 });
 
 const todoInput = document.querySelector(".inputItem");
@@ -13,76 +13,76 @@ todoButton.addEventListener("click", addNewItems);
 todoList.addEventListener("click", iterateThroughtAllTrashIcons);
 
 function iterateThroughtAllTrashIcons() {
-    let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
-    deleteTrashIcon.forEach((trashIcon) => {
-        if (trashIcon === null) return;
-        trashIcon.addEventListener("click", deleteItemsFromlocalStorage);
-    });
+  let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
+  deleteTrashIcon.forEach((trashIcon) => {
+    if (trashIcon === null) return;
+    trashIcon.addEventListener("click", deleteItemsFromlocalStorage);
+  });
 }
 
 //#region Delete item from list
 function deleteItemsFromlocalStorage(event) {
-    let toDosList = isLocalStorageEmpty();
-    const item = todoList.childNodes;
+  let toDosList = isLocalStorageEmpty();
+  const item = todoList.childNodes;
 
-    for (let index = 0; index < item.length; index++) {
-        if (item[index].contains(event.target)) {
-            toDosList.splice(index, 1);
-            todoList.removeChild(item[index]);
-            localStorage.setItem("toDosList", JSON.stringify(toDosList));
-            return;
-        }
+  for (let index = 0; index < item.length; index++) {
+    if (item[index].contains(event.target)) {
+      toDosList.splice(index, 1);
+      todoList.removeChild(item[index]);
+      localStorage.setItem("toDosList", JSON.stringify(toDosList));
+      return;
     }
+  }
 }
 //#endregion
 
 function addNewItems(event) {
-    event.preventDefault();
-    let toDoItem = getItemTemplate(todoInput?.value);
-    if (toDoItem === undefined) {
-        alert("Please enter a valid toDo");
-        return;
-    }
+  event.preventDefault();
+  let toDoItem = getItemTemplate(todoInput?.value);
+  if (toDoItem === undefined) {
+    alert("Please enter a valid toDo");
+    return;
+  }
 
-    createNewTodoItem(toDoItem);
-    addTodosToLocalStorage(toDoItem);
+  createNewTodoItem(toDoItem);
+  addTodosToLocalStorage(toDoItem);
 }
 
 function isLocalStorageEmpty() {
-    if (!localStorage.getItem("toDosList")) {
-        toDosList = [];
-    } else {
-        toDosList = JSON.parse(localStorage.getItem("toDosList"));
-    }
-    return toDosList;
+  if (!localStorage.getItem("toDosList")) {
+    toDosList = [];
+  } else {
+    toDosList = JSON.parse(localStorage.getItem("toDosList"));
+  }
+  return toDosList;
 }
 
 function retrieveItemsFromLocalStorage() {
-    if (!localStorage.getItem("toDosList")) return;
-    let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
+  if (!localStorage.getItem("toDosList")) return;
+  let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
 
-    localStorageList.forEach((toDo) => {
-        if (toDo === null) return;
-        createNewTodoItem(toDo);
-    });
+  localStorageList.forEach((toDo) => {
+    if (toDo === null) return;
+    createNewTodoItem(toDo);
+  });
 }
 
 function createNewTodoItem(toDo) {
-    todoList.insertAdjacentHTML("beforeend", toDo);
-    todoInput.value = "";
+  todoList.insertAdjacentHTML("beforeend", toDo);
+  todoInput.value = "";
 }
 
 function addTodosToLocalStorage(toDoItem) {
-    let toDosList = isLocalStorageEmpty();
+  let toDosList = isLocalStorageEmpty();
 
-    toDosList.push(toDoItem);
-    localStorage.setItem("toDosList", JSON.stringify(toDosList));
+  toDosList.push(toDoItem);
+  localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
 
 //#region Get item template
 function getItemTemplate(contentValue) {
-    if (contentValue === "") return;
-    return `<li class="todo">
+  if (contentValue === "") return;
+  return `<li class="todo">
                     <div class="content">
                         <p>${contentValue}</p> 
                     </div>  
@@ -100,4 +100,4 @@ function getItemTemplate(contentValue) {
                     </div>
                 </li>`;
 }
-    //#endregion
+//#endregion
