@@ -20,7 +20,7 @@ function iterateThroughtAllTrashIcons() {
   });
 }
 
-//#region Delete item from list
+//#region Deletes item from list
 function deleteItemsFromlocalStorage(event) {
   let toDosList = isLocalStorageEmpty();
   const item = todoList.childNodes;
