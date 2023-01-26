@@ -1,32 +1,13 @@
-var printer = (function () {
-  var printerInstance;
-
-  function create() {
-    function print() {}
-
-    function turnOn() {}
-    return {
-      //public + private states and behaviors
-      print: print,
-      turnOn: turnOn,
-    };
+var myInstance = (function () {
+  var privateVar = '';
+  function privateMethod() {
+    //..
   }
-
   return {
-    getInstance: function () {
-      if (!printerInstance) {
-        printerInstance = create();
-      }
-      return printerInstance;
-    },
+    publicMethod1: function () { },
+    publicMethod2: function () { }
+
   };
-
-  function Singleton() {
-    if (!printerIntancance) {
-      printerIntancance = intialize();
-    }
-  }
-})(); //invocked
-
-var officePriner = printer.getInstance();
-console.log(officePriner);
+})();
+var testing = myInstance.publicMethod1();
+console.log(testing);
