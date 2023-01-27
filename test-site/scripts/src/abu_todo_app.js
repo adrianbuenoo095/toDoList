@@ -1,4 +1,4 @@
-addEventListener("load", (event) => {
+window.addEventListener("load", (event) => {
   onLoad = retrieveItemsFromLocalStorage();
 });
 
