@@ -3,10 +3,11 @@ addEventListener("load", (event) => {
 });
 
 const todoInput = document.querySelector(".inputItem");
+
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-let completeCheckIcon = document.querySelectorAll(".fas .fa-check");
-let toDosList;
+let completeCheckIcon = document.querySelectorAll(".fas.fa-check");
+let toDosList = [];
 
 //Event Listeners
 todoButton.addEventListener("click", addNewItems);
@@ -22,7 +23,7 @@ function iterateThroughtAllTrashIcons() {
 
 //#region Deletes item from list
 function deleteItemsFromlocalStorage(event) {
-  let toDosList = isLocalStorageEmpty();
+  toDosList = isLocalStorageEmpty();
   const item = todoList.childNodes;
 
   for (let index = 0; index < item.length; index++) {
@@ -73,7 +74,7 @@ function createNewTodoItem(toDo) {
 }
 
 function addTodosToLocalStorage(toDoItem) {
-  let toDosList = isLocalStorageEmpty();
+  toDosList = isLocalStorageEmpty();
 
   toDosList.push(toDoItem);
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
@@ -89,12 +90,12 @@ function getItemTemplate(contentValue) {
                     <div class="interactions" >
                         <div class="completeTaskCheck">
                             <button class="complete-btn">
-                                <index class="fas fa-check"></index>
+                                <i class="fas fa-check"></i>
                             </button>
                         </div>
                         <div class="deleteTask">
                             <button class="trash-btn">
-                                <index class="fas fa-trash"></index>
+                                <i class="fas fa-trash"></i>
                             </button>
                         </div>
                     </div>
