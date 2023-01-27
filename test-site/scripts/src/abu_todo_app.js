@@ -6,7 +6,7 @@ const todoInput = document.querySelector(".inputItem");
 
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-let completeCheckIcon = document.querySelectorAll(".fas.fa-check");
+let completeCheckIcon = document.querySelectorAll(".complete-btn");
 let toDosList = [];
 
 //Event Listeners
