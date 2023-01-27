@@ -14,7 +14,7 @@ todoButton.addEventListener("click", addNewItems);
 todoList.addEventListener("click", iterateThroughtAllTrashIcons);
 
 function iterateThroughtAllTrashIcons() {
-  let deleteTrashIcon = document.querySelectorAll(".fas.fa-trash");
+  let deleteTrashIcon = document.querySelectorAll(".trash-btn");
   deleteTrashIcon.forEach((trashIcon) => {
     if (trashIcon === null) return;
     trashIcon.addEventListener("click", deleteItemsFromlocalStorage);
