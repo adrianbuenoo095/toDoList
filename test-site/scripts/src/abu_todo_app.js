@@ -5,12 +5,12 @@ window.addEventListener("load", (event) => {
 const todoInput = document.querySelector(".inputItem");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-let completeCheckIcon = document.querySelectorAll(".complete-btn");
 let toDosList = [];
 
 //Event Listeners
 todoButton.addEventListener("click", addNewItems);
 todoList.addEventListener("click", iterateThroughtAllTrashIcons);
+todoList.addEventListener("click", testingFunction);
 
 function iterateThroughtAllTrashIcons() {
   let deleteTrashIcon = document.querySelectorAll(".trash-btn");
@@ -20,6 +20,17 @@ function iterateThroughtAllTrashIcons() {
   });
 }
 
+function completesToDos() {
+  let completeCheckIcon = document.querySelectorAll(".complete-btn");
+  completeCheckIcon.forEach((element) => {
+    console.log(element);
+    element.addEventListener("click", testingFunction);
+  });
+}
+
+function testingFunction(event) {
+  event.target.style.filter = "grayscale(100%)";
+}
 //#region Deletes item from list
 function deleteItemsFromlocalStorage(event) {
   toDosList = isLocalStorageEmpty();
