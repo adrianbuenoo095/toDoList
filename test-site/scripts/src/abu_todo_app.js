@@ -10,7 +10,7 @@ let toDosList = [];
 //Event Listeners
 todoButton.addEventListener("click", addNewItems);
 todoList.addEventListener("click", iterateThroughtAllTrashIcons);
-todoList.addEventListener("click", testingFunction);
+todoList.addEventListener("click", completesToDos);
 
 function iterateThroughtAllTrashIcons() {
   let deleteTrashIcon = document.querySelectorAll(".trash-btn");
@@ -28,18 +28,15 @@ function completesToDos() {
   });
 }
 
-function testingFunction(event) {
-  event.target.style.filter = "grayscale(100%)";
-}
 //#region Deletes item from list
 function deleteItemsFromlocalStorage(event) {
   toDosList = isLocalStorageEmpty();
-  const item = todoList.childNodes;
+  const toDoItems = todoList.childNodes;
 
-  for (let index = 0; index < item.length; index++) {
-    if (item[index].contains(event.target)) {
+  for (let index = 0; index < toDoItems.length; index++) {
+    if (toDoItems[index].contains(event.target)) {
       toDosList.splice(index, 1);
-      todoList.removeChild(item[index]);
+      todoList.removeChild(toDoItems[index]);
       localStorage.setItem("toDosList", JSON.stringify(toDosList));
       return;
     }
