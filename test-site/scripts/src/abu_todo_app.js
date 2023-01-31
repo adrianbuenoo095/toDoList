@@ -3,14 +3,14 @@ window.addEventListener("load", (event) => {
 });
 
 const todoInput = document.querySelector(".inputItem");
-const todoButton = document.querySelector(".todo-button");
-const todoList = document.querySelector(".todo-list");
+const addNewtoDoButton = document.querySelector(".todo-button");
+const toDosItems = document.querySelector(".todo-list");
 let toDosList = [];
 
 //Event Listeners
-todoButton.addEventListener("click", addNewItems);
-todoList.addEventListener("click", iterateThroughtAllTrashIcons);
-todoList.addEventListener("click", completesToDos);
+addNewtoDoButton.addEventListener("click", addNewItems);
+toDosItems.addEventListener("click", iterateThroughtAllTrashIcons);
+toDosItems.addEventListener("click", completesToDos);
 
 function iterateThroughtAllTrashIcons() {
   let deleteTrashIcon = document.querySelectorAll(".trash-btn");
@@ -31,12 +31,12 @@ function completesToDos() {
 //#region Deletes item from list
 function deleteItemsFromlocalStorage(event) {
   toDosList = isLocalStorageEmpty();
-  const toDoItems = todoList.childNodes;
+  const toDoItems = toDosItems.childNodes;
 
   for (let index = 0; index < toDoItems.length; index++) {
     if (toDoItems[index].contains(event.target)) {
       toDosList.splice(index, 1);
-      todoList.removeChild(toDoItems[index]);
+      toDosItems.removeChild(toDoItems[index]);
       localStorage.setItem("toDosList", JSON.stringify(toDosList));
       return;
     }
@@ -76,7 +76,7 @@ function retrieveItemsFromLocalStorage() {
 }
 
 function createNewTodoItem(toDo) {
-  todoList.insertAdjacentHTML("beforeend", toDo);
+  toDosItems.insertAdjacentHTML("beforeend", toDo);
   todoInput.value = "";
 }
 
