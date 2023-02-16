@@ -23,7 +23,6 @@ function iterateThroughtAllTrashIcons() {
 function completesToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => {
-    console.log(checkIcon);
     checkIcon.addEventListener("click", completesToDos);
   });
 }
