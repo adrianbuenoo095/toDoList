@@ -21,8 +21,8 @@ function iterateThroughtAllTrashIcons() {
 }
 
 function completesToDos() {
-  let completeCheckIcon = document.querySelectorAll(".complete-btn");
-  completeCheckIcon.forEach((checkIcon) => {
+  let completeCheckIcons = document.querySelectorAll(".complete-btn");
+  completeCheckIcons.forEach((checkIcon) => {
     console.log(checkIcon);
     checkIcon.addEventListener("click", completesToDos);
   });
