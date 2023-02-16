@@ -22,9 +22,9 @@ function iterateThroughtAllTrashIcons() {
 
 function completesToDos() {
   let completeCheckIcon = document.querySelectorAll(".complete-btn");
-  completeCheckIcon.forEach((element) => {
-    console.log(element);
-    element.addEventListener("click", testingFunction);
+  completeCheckIcon.forEach((checkIcon) => {
+    console.log(checkIcon);
+    checkIcon.addEventListener("click", completesToDos);
   });
 }
 
