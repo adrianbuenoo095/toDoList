@@ -23,7 +23,7 @@ function iterateThroughtAllTrashIcons() {
 function completesToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => {
-    checkIcon.addEventListener("click", completesToDos);
+    // checkIcon.addEventListener("click", completesToDos);
   });
 }
 
@@ -66,9 +66,9 @@ function isLocalStorageEmpty() {
 
 function retrieveItemsFromLocalStorage() {
   if (!localStorage.getItem("toDosList")) return;
-  let localStorageList = JSON.parse(localStorage.getItem("toDosList"));
+  let toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDosList"));
 
-  localStorageList.forEach((toDo) => {
+  toDosFromLocalStorage.forEach((toDo) => {
     if (toDo === null) return;
     createNewTodoItem(toDo);
   });
