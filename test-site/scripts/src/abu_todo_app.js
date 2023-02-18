@@ -13,8 +13,8 @@ toDosItems.addEventListener("click", iterateThroughtAllTrashIcons);
 toDosItems.addEventListener("click", completesToDos);
 
 function iterateThroughtAllTrashIcons() {
-  let deleteTrashIcon = document.querySelectorAll(".trash-btn");
-  deleteTrashIcon.forEach((trashIcon) => {
+  let trashIcons = document.querySelectorAll(".trash-btn");
+  trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
     trashIcon.addEventListener("click", deleteItemsFromlocalStorage);
   });
