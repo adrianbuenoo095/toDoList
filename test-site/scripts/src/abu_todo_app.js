@@ -2,7 +2,7 @@ window.addEventListener("load", (event) => {
   onLoad = retrieveItemsFromLocalStorage();
 });
 
-const todoInput = document.querySelector(".inputItem");
+const toDoInput = document.querySelector(".inputItem");
 const addToDoButton = document.querySelector(".todo-button");
 const toDoItem = document.querySelector(".todo-list");
 let toDosList = [];
@@ -45,7 +45,7 @@ function deleteItemsFromlocalStorage(event) {
 
 function addNewItems(event) {
   event.preventDefault();
-  let toDoItem = getItemTemplate(todoInput?.value);
+  let toDoItem = getItemTemplate(toDoInput?.value);
   if (toDoItem === undefined) {
     alert("Please enter a valid toDo");
     return;
@@ -76,7 +76,7 @@ function retrieveItemsFromLocalStorage() {
 
 function createNewTodoItem(toDo) {
   toDoItem.insertAdjacentHTML("beforeend", toDo);
-  todoInput.value = "";
+  toDoInput.value = "";
 }
 
 function addTodosToLocalStorage(toDoItem) {
