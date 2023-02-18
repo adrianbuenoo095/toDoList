@@ -51,7 +51,7 @@ function addNewItems(event) {
   }
 
   createNewTodoItem(toDoItem);
-  addTodosToLocalStorage(toDoItem);
+  addToDosToLocalStorage(toDoItem);
 }
 //#endregion
 
@@ -79,7 +79,7 @@ function createNewTodoItem(toDo) {
   toDoInput.value = "";
 }
 
-function addTodosToLocalStorage(toDoItem) {
+function addToDosToLocalStorage(toDoItem) {
   toDosList = isLocalStorageEmpty();
 
   toDosList.push(toDoItem);
