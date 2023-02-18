@@ -1,6 +1,6 @@
 export function getItemTemplate(contentValue) {
-    if (contentValue === "") return;
-    return `<li class="todo">
+  if (contentValue === "") return;
+  return `<li class="todo">
                       <div class="content">
                           <p>${contentValue}</p> 
                       </div>  
@@ -17,5 +17,4 @@ export function getItemTemplate(contentValue) {
                           </div>
                       </div>
                   </li>`;
-  }
-  
+}
