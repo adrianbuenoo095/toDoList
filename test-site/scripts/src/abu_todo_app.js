@@ -1,3 +1,5 @@
+import {getItemTemplate} from "../src/getItemTemplate.js";
+
 window.addEventListener("load", (event) => {
   onLoad = retrieveItemsFromLocalStorage();
 });
@@ -12,11 +14,12 @@ addToDoButton.addEventListener("click", addNewItems);
 toDoItem.addEventListener("click", iterateThroughtAllTrashIcons);
 toDoItem.addEventListener("click", completesToDos);
 
+//#region addEventListeners callbacks functions 
 function iterateThroughtAllTrashIcons() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
-    trashIcon.addEventListener("click", deleteItemsFromlocalStorage);
+    trashIcon.addEventListener("click", deleteToDosromlocalStorage);
   });
 }
 
@@ -27,8 +30,7 @@ function completesToDos() {
   });
 }
 
-//#region Deletes item from list
-function deleteItemsFromlocalStorage(event) {
+function deleteToDosromlocalStorage(event) {
   toDosList = isLocalStorageEmpty();
   const toDoItems = toDoItem.childNodes;
 
@@ -41,7 +43,6 @@ function deleteItemsFromlocalStorage(event) {
     }
   }
 }
-//#endregion
 
 function addNewItems(event) {
   event.preventDefault();
@@ -54,6 +55,7 @@ function addNewItems(event) {
   createNewTodoItem(toDoItem);
   addTodosToLocalStorage(toDoItem);
 }
+//#endregion
 
 function isLocalStorageEmpty() {
   if (!localStorage.getItem("toDosList")) {
@@ -86,25 +88,3 @@ function addTodosToLocalStorage(toDoItem) {
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
 
-//#region Get item template
-function getItemTemplate(contentValue) {
-  if (contentValue === "") return;
-  return `<li class="todo">
-                    <div class="content">
-                        <p>${contentValue}</p> 
-                    </div>  
-                    <div class="interactions" >
-                        <div class="completeTaskCheck">
-                            <button class="complete-btn">
-                                <i class="fas fa-check"></i>
-                            </button>
-                        </div>
-                        <div class="deleteTask">
-                            <button class="trash-btn">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                </li>`;
-}
-//#endregion
