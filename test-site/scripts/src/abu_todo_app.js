@@ -1,8 +1,6 @@
-import {getItemTemplate} from "../src/getItemTemplate.js";
+import { getItemTemplate } from "../src/getItemTemplate.js";
 
-window.addEventListener("load", (event) => {
-  onLoad = retrieveItemsFromLocalStorage();
-});
+window.addEventListener("DOMContentLoaded", retrieveItemsFromLocalStorage);
 
 const toDoInput = document.querySelector(".inputItem");
 const addToDoButton = document.querySelector(".todo-button");
