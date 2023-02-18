@@ -1,4 +1,4 @@
-export function getItemTemplate(contentValue) {
+export function getTemplate(contentValue) {
     if (contentValue === "") return;
     let template = `<li class="todo">
                       <div class="content">

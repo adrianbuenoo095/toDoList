@@ -1,4 +1,4 @@
-import { getItemTemplate } from "../src/getItemTemplate.js";
+import { getTemplate } from "../src/getTemplate.js";
 
 window.addEventListener("DOMContentLoaded", retrieveItemsFromLocalStorage);
 
@@ -12,7 +12,7 @@ addToDoButton.addEventListener("click", addNewItems);
 toDoItem.addEventListener("click", iterateThroughtAllTrashIcons);
 toDoItem.addEventListener("click", completesToDos);
 
-//#region addEventListeners callbacks functions
+//#region addEventListeners callbacks functions 
 function iterateThroughtAllTrashIcons() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
@@ -44,7 +44,7 @@ function deleteToDosromlocalStorage(event) {
 
 function addNewItems(event) {
   event.preventDefault();
-  let toDoItem = getItemTemplate(toDoInput?.value);
+  let toDoItem = getTemplate(toDoInput?.value);
   if (toDoItem === undefined) {
     alert("Please enter a valid toDo");
     return;
@@ -85,3 +85,4 @@ function addTodosToLocalStorage(toDoItem) {
   toDosList.push(toDoItem);
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
+
