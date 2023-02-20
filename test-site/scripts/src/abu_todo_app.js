@@ -9,26 +9,25 @@ let toDosList = [];
 
 //Event Listeners
 addToDoButton.addEventListener("click", addNewItems);
-toDoItem.addEventListener("click", iterateThroughtAllTrashIcons);
+toDoItem.addEventListener("click", iterateThroughtAllTrashElements);
 toDoItem.addEventListener("click", completesToDos);
 
 //#region addEventListeners callbacks functions 
-function iterateThroughtAllTrashIcons() {
+function iterateThroughtAllTrashElements() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
-    trashIcon.addEventListener("click", deleteToDosromlocalStorage);
+    trashIcon.addEventListener("click", updateLocalStorage);
   });
 }
 
 function completesToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => {
-    // checkIcon.addEventListener("click", completesToDos);
   });
 }
 
-function deleteToDosromlocalStorage(event) {
+function updateLocalStorage(event) {
   toDosList = isLocalStorageEmpty();
   const toDoItems = toDoItem.childNodes;
 
@@ -50,8 +49,8 @@ function addNewItems(event) {
     return;
   }
 
-  createNewTodoItem(toDoItem);
-  addToDosToLocalStorage(toDoItem);
+  createNewTodo(toDoItem);
+  addToDoToLocalStorage(toDoItem);
 }
 //#endregion
 
@@ -70,16 +69,16 @@ function retrieveItemsFromLocalStorage() {
 
   toDosFromLocalStorage.forEach((toDo) => {
     if (toDo === null) return;
-    createNewTodoItem(toDo);
+    createNewTodo(toDo);
   });
 }
 
-function createNewTodoItem(toDo) {
+function createNewTodo(toDo) {
   toDoItem.insertAdjacentHTML("beforeend", toDo);
   toDoInput.value = "";
 }
 
-function addToDosToLocalStorage(toDoItem) {
+function addToDoToLocalStorage(toDoItem) {
   toDosList = isLocalStorageEmpty();
 
   toDosList.push(toDoItem);
