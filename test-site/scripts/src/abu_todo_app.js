@@ -12,7 +12,7 @@ addToDoButton.addEventListener("click", addNewItems);
 toDoItem.addEventListener("click", iterateThroughtAllTrashElements);
 toDoItem.addEventListener("click", completesToDos);
 
-//#region addEventListeners callbacks functions 
+//#region addEventListeners callbacks functions
 function iterateThroughtAllTrashElements() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
@@ -23,8 +23,7 @@ function iterateThroughtAllTrashElements() {
 
 function completesToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
-  completeCheckIcons.forEach((checkIcon) => {
-  });
+  completeCheckIcons.forEach((checkIcon) => {});
 }
 
 function updateLocalStorage(event) {
@@ -84,4 +83,3 @@ function addToDoToLocalStorage(toDoItem) {
   toDosList.push(toDoItem);
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
-
