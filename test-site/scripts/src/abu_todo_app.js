@@ -9,12 +9,12 @@ let toDosList = [];
 
 //#region Event Listeners
 addToDoButton.addEventListener("click", addNewItems);
-toDoItemList.addEventListener("click", iterateThroughtAllTrashElements);
+toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completesToDos);
 //#endregion 
 
 //#region addEventListeners callbacks functions
-function iterateThroughtAllTrashElements() {
+function removeToDos() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
