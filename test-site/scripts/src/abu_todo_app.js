@@ -1,5 +1,6 @@
 import { getTemplate } from "../src/getTemplate.js";
 
+//load
 window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
 
 const toDoInput = document.querySelector(".inputItem");
@@ -18,16 +19,16 @@ function removeToDos() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
-    trashIcon.addEventListener("click", updateLocalStorage);
+    trashIcon.addEventListener("click", updatesLocalStorage);
   });
 }
 
 function completesToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
-  completeCheckIcons.forEach((checkIcon) => {});
+  completeCheckIcons.forEach((checkIcon) => { });
 }
 
-function updateLocalStorage(event) {
+function updatesLocalStorage(event) {
   toDosList = isLocalStorageEmpty();
   const toDoItemLists = toDoItemList.childNodes;
 
