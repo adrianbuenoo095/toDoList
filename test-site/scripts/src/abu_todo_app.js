@@ -7,10 +7,11 @@ const addToDoButton = document.querySelector(".todo-button");
 const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
-//Event Listeners
+//#region Event Listeners
 addToDoButton.addEventListener("click", addNewItems);
 toDoItemList.addEventListener("click", iterateThroughtAllTrashElements);
 toDoItemList.addEventListener("click", completesToDos);
+//#endregion 
 
 //#region addEventListeners callbacks functions
 function iterateThroughtAllTrashElements() {
