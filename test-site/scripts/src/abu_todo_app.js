@@ -1,16 +1,16 @@
 import { getTemplate } from "../src/getTemplate.js";
 
-window.addEventListener("DOMContentLoaded", retrieveItemsFromLocalStorage);
+window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
 
 const toDoInput = document.querySelector(".inputItem");
 const addToDoButton = document.querySelector(".todo-button");
-const toDoItem = document.querySelector(".todo-list");
+const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //Event Listeners
 addToDoButton.addEventListener("click", addNewItems);
-toDoItem.addEventListener("click", iterateThroughtAllTrashElements);
-toDoItem.addEventListener("click", completesToDos);
+toDoItemList.addEventListener("click", iterateThroughtAllTrashElements);
+toDoItemList.addEventListener("click", completesToDos);
 
 //#region addEventListeners callbacks functions
 function iterateThroughtAllTrashElements() {
@@ -28,12 +28,12 @@ function completesToDos() {
 
 function updateLocalStorage(event) {
   toDosList = isLocalStorageEmpty();
-  const toDoItems = toDoItem.childNodes;
+  const toDoItemLists = toDoItemList.childNodes;
 
-  for (let index = 0; index < toDoItems.length; index++) {
-    if (toDoItems[index].contains(event.target)) {
+  for (let index = 0; index < toDoItemLists.length; index++) {
+    if (toDoItemLists[index].contains(event.target)) {
       toDosList.splice(index, 1);
-      toDoItem.removeChild(toDoItems[index]);
+      toDoItemList.removeChild(toDoItemLists[index]);
       localStorage.setItem("toDosList", JSON.stringify(toDosList));
       return;
     }
@@ -42,14 +42,14 @@ function updateLocalStorage(event) {
 
 function addNewItems(event) {
   event.preventDefault();
-  let toDoItem = getTemplate(toDoInput?.value);
-  if (toDoItem === undefined) {
+  let toDoItemList = getTemplate(toDoInput?.value);
+  if (toDoItemList === undefined) {
     alert("Please enter a valid toDo");
     return;
   }
 
-  createNewTodo(toDoItem);
-  addToDoToLocalStorage(toDoItem);
+  createNewTodo(toDoItemList);
+  addToDoToLocalStorage(toDoItemList);
 }
 //#endregion
 
@@ -62,7 +62,7 @@ function isLocalStorageEmpty() {
   return toDosList;
 }
 
-function retrieveItemsFromLocalStorage() {
+function retrieveToDosFromLocalStorage() {
   if (!localStorage.getItem("toDosList")) return;
   let toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDosList"));
 
@@ -73,13 +73,13 @@ function retrieveItemsFromLocalStorage() {
 }
 
 function createNewTodo(toDo) {
-  toDoItem.insertAdjacentHTML("beforeend", toDo);
+  toDoItemList.insertAdjacentHTML("beforeend", toDo);
   toDoInput.value = "";
 }
 
-function addToDoToLocalStorage(toDoItem) {
+function addToDoToLocalStorage(toDoItemList) {
   toDosList = isLocalStorageEmpty();
 
-  toDosList.push(toDoItem);
+  toDosList.push(toDoItemList);
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
