@@ -11,7 +11,7 @@ let toDosList = [];
 //#region Event Listeners
 addToDoButton.addEventListener("click", addNewItems);
 toDoItemList.addEventListener("click", removeToDos);
-toDoItemList.addEventListener("click", completesToDos);
+toDoItemList.addEventListener("click", completeToDos);
 //#endregion 
 
 //#region addEventListeners callbacks functions
@@ -23,7 +23,7 @@ function removeToDos() {
   });
 }
 
-function completesToDos() {
+function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => { });
 }
