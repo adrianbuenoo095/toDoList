@@ -1,5 +1,9 @@
 import { getTemplate } from "../src/getTemplate.js";
 
+/**
+ * @author Adrian Bueno <adrianbueno095@gmail.con>
+ */
+
 //load
 window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
 
