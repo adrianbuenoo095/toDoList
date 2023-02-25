@@ -54,8 +54,8 @@ function addNewToDos(event) {
     return;
   }
 
-  createNewTodo(toDoItemList);
-  addToDoToLocalStorage(toDoItemList);
+  appendNewTodos(toDoItemList);
+  addToDosToLocalStorage(toDoItemList);
 }
 //#endregion
 
@@ -74,16 +74,16 @@ function retrieveToDosFromLocalStorage() {
 
   toDosFromLocalStorage.forEach((toDo) => {
     if (toDo === null) return;
-    createNewTodo(toDo);
+    appendNewTodos(toDo);
   });
 }
 
-function createNewTodo(toDo) {
+function appendNewTodos(toDo) {
   toDoItemList.insertAdjacentHTML("beforeend", toDo);
   toDoInput.value = "";
 }
 
-function addToDoToLocalStorage(toDoItemList) {
+function addToDosToLocalStorage(toDoItemList) {
   toDosList = isLocalStorageEmpty();
 
   toDosList.push(toDoItemList);
