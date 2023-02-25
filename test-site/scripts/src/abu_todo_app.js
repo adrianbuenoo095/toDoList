@@ -13,7 +13,7 @@ const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //#region Event Listeners
-addToDoButton.addEventListener("click", addNewItems);
+addToDoButton.addEventListener("click", addNewToDos);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
 //#endregion 
@@ -46,7 +46,7 @@ function updatesLocalStorage(event) {
   }
 }
 
-function addNewItems(event) {
+function addNewToDos(event) {
   event.preventDefault();
   let toDoItemList = getTemplate(toDoInput?.value);
   if (toDoItemList === undefined) {
