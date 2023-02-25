@@ -13,12 +13,24 @@ const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //#region Event Listeners
-addToDoButton.addEventListener("click", addNewToDos);
+addToDoButton.addEventListener("click", createNewTodos);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
 //#endregion 
 
 //#region addEventListeners callbacks functions
+function createNewTodos(event) {
+  event.preventDefault();
+  let toDoItemList = getTemplate(toDoInput?.value);
+  if (toDoItemList === undefined) {
+    alert("Please enter a valid toDo");
+    return;
+  }
+
+  appendToDosToHtml(toDoItemList);
+  addToDosToLocalStorage(toDoItemList);
+}
+
 function removeToDos() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
@@ -31,6 +43,7 @@ function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => { });
 }
+//#endregion
 
 function updatesLocalStorage(event) {
   toDosList = isLocalStorageEmpty();
@@ -45,19 +58,6 @@ function updatesLocalStorage(event) {
     }
   }
 }
-
-function addNewToDos(event) {
-  event.preventDefault();
-  let toDoItemList = getTemplate(toDoInput?.value);
-  if (toDoItemList === undefined) {
-    alert("Please enter a valid toDo");
-    return;
-  }
-
-  appendNewTodos(toDoItemList);
-  addToDosToLocalStorage(toDoItemList);
-}
-//#endregion
 
 function isLocalStorageEmpty() {
   if (!localStorage.getItem("toDosList")) {
@@ -74,11 +74,11 @@ function retrieveToDosFromLocalStorage() {
 
   toDosFromLocalStorage.forEach((toDo) => {
     if (toDo === null) return;
-    appendNewTodos(toDo);
+    appendToDosToHtml(toDo);
   });
 }
 
-function appendNewTodos(toDo) {
+function appendToDosToHtml(toDo) {
   toDoItemList.insertAdjacentHTML("beforeend", toDo);
   toDoInput.value = "";
 }
