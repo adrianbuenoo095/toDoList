@@ -57,6 +57,7 @@ form button:hover {
   min-width: 30%;
   list-style: none;
 }
+
 .todo {
   margin: 0.5rem;
   background: white;
@@ -66,6 +67,7 @@ form button:hover {
   justify-content: space-between;
   align-items: center;
 }
+
 .todo li {
   flex: 1;
 }
