@@ -41,7 +41,9 @@ function removeToDos() {
 
 function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
-  completeCheckIcons.forEach((checkIcon) => {});
+  completeCheckIcons.forEach((checkIcon) => {
+    checkIcon.addEventListener("click", () => { console.log("helloooo, this is a test") })
+  });
 }
 //#endregion
 
