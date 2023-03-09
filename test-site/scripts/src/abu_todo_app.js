@@ -32,13 +32,10 @@ function createNewTodos(event) {
 }
 
 function removeToDos() {
-  let trashIcons = document.querySelectorAll(".trash-btn");
-  trashIcons.forEach((trashIcon) => {
-    if (trashIcon === null) return;
+  let removeTrashIcons = document.querySelectorAll(".trash-btn");
 
-    console.log(trashIcon);
-
-    trashIcon.addEventListener("click", updatesLocalStorage);
+  removeTrashIcons.forEach((removeTrashIcon) => {
+    removeTrashIcon.addEventListener("click", updatesLocalStorage);
   });
 }
 
@@ -46,15 +43,8 @@ function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
 
   completeCheckIcons.forEach((completeCheckIcon) => {
-    completeCheckIcon.addEventListener("click", () => {
-
-      let completeToDo = toDoItemList.childNodes;
-
-      for (let index = 0; index < completeToDo.length; index++) {
-        const element = completeToDo[index];
-        console.log(`the first toDo: ${element}`);
-      }
-
+    completeCheckIcon.addEventListener("click", (event) => {
+      console.log(event.target)
     });
   });
 }
