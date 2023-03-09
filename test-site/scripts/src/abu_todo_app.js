@@ -44,9 +44,17 @@ function removeToDos() {
 
 function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
-  completeCheckIcons.forEach((checkIcon) => {
-    checkIcon.addEventListener("click", () => {
-      console.log("helloooo, this is a test");
+
+  completeCheckIcons.forEach((completeCheckIcon) => {
+    completeCheckIcon.addEventListener("click", () => {
+
+      let completeToDo = toDoItemList.childNodes;
+
+      for (let index = 0; index < completeToDo.length; index++) {
+        const element = completeToDo[index];
+        console.log(`the first toDo: ${element}`);
+      }
+
     });
   });
 }
