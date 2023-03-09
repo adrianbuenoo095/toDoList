@@ -4,7 +4,7 @@ import { getTemplate } from "../src/getTemplate.js";
  * @author Adrian Bueno <adrianbueno095@gmail.con>
  */
 
-//load
+//load content
 window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
 
 const toDoInput = document.querySelector(".inputItem");
