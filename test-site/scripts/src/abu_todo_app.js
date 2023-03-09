@@ -35,6 +35,9 @@ function removeToDos() {
   let trashIcons = document.querySelectorAll(".trash-btn");
   trashIcons.forEach((trashIcon) => {
     if (trashIcon === null) return;
+
+    console.log(trashIcon);
+
     trashIcon.addEventListener("click", updatesLocalStorage);
   });
 }
@@ -42,7 +45,9 @@ function removeToDos() {
 function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
   completeCheckIcons.forEach((checkIcon) => {
-    checkIcon.addEventListener("click", () => { console.log("helloooo, this is a test") })
+    checkIcon.addEventListener("click", () => {
+      console.log("helloooo, this is a test");
+    });
   });
 }
 //#endregion
