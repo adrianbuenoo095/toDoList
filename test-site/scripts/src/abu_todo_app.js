@@ -16,7 +16,7 @@ let toDosList = [];
 addToDoButton.addEventListener("click", createNewTodos);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
-//#endregion 
+//#endregion
 
 //#region addEventListeners callbacks functions
 function createNewTodos(event) {
@@ -41,7 +41,7 @@ function removeToDos() {
 
 function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
-  completeCheckIcons.forEach((checkIcon) => { });
+  completeCheckIcons.forEach((checkIcon) => {});
 }
 //#endregion
 

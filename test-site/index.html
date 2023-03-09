@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>TODO App</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="description" content="A toDo list personal project" />
+    <meta name="author" content="Adrian Bueno" />
+  </head>
 
-<head>
-  <title>TODO App</title>
-  <link href="styles/style.css" rel="stylesheet" />
-  <meta charset="utf-8">
-  <meta name="description" content="A toDo list personal project">
-  <meta name="author" content="Adrian Bueno">
-</head>
+  <body>
+    <header>
+      <h1>To Do-List</h1>
+    </header>
+    <form>
+      <input type="text" class="inputItem" />
+      <button type="submit" class="todo-button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </form>
 
-<body>
-  <header>
-    <h1>To Do-List</h1>
-  </header>
-  <form>
-    <input type="text" class="inputItem" />
-    <button type="submit" class="todo-button">
-      <i class="fas fa-plus"></i>
-    </button>
-  </form>
+    <div class="todo-container">
+      <ul class="todo-list"></ul>
+    </div>
 
-  <div class="todo-container">
-    <ul class="todo-list"></ul>
-  </div>
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/aca0f3770c.js" crossorigin="anonymous"></script>
-  <script type="module" src="./scripts/src/abu_todo_app.js"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/aca0f3770c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./scripts/src/abu_todo_app.js"></script>
+  </body>
 </html>

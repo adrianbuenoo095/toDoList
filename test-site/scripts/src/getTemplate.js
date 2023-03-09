@@ -1,6 +1,6 @@
 export function getTemplate(contentValue) {
-    if (contentValue === "") return;
-    let template = `<li class="todo">
+  if (contentValue === "") return;
+  let template = `<li class="todo">
                       <div class="content">
                           <p>${contentValue}</p> 
                       </div>  
@@ -17,5 +17,5 @@ export function getTemplate(contentValue) {
                           </div>
                       </div>
                   </li>`;
-    return template;
+  return template;
 }
