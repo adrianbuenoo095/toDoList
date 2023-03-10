@@ -35,6 +35,7 @@ function removeToDos() {
   let removeTrashIcons = document.querySelectorAll(".trash-btn");
 
   removeTrashIcons.forEach((removeTrashIcon) => {
+    console.log(removeTrashIcon)
     removeTrashIcon.addEventListener("click", updatesLocalStorage);
   });
 }
@@ -44,7 +45,7 @@ function completeToDos() {
 
   completeCheckIcons.forEach((completeCheckIcon) => {
     completeCheckIcon.addEventListener("click", (event) => {
-      console.log(event.target);
+      console.log(`this is coming from the completeTodDos${event.target}`);
     });
   });
 }
