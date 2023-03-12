@@ -90,7 +90,6 @@ function appendToDosToHtml(toDo) {
 
 function addToDosToLocalStorage(toDoItemList) {
   toDosList = isLocalStorageEmpty();
-
   toDosList.push(toDoItemList);
   localStorage.setItem("toDosList", JSON.stringify(toDosList));
 }
