@@ -43,9 +43,7 @@ function completeToDos() {
   let completeCheckIcons = document.querySelectorAll(".complete-btn");
 
   completeCheckIcons.forEach((completeCheckIcon) => {
-    completeCheckIcon.addEventListener("click", (event) => {
-
-    });
+    completeCheckIcon.addEventListener("click", (event) => {});
   });
 }
 //#endregion
