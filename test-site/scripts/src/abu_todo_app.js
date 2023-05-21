@@ -15,13 +15,13 @@ const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //#region Event Listeners
-addToDoButton.addEventListener("click", createNewTodos);
+addToDoButton.addEventListener("click", toDoInput);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
 //#endregion
 
 //#region addEventListeners callbacks functions
-function createNewTodos(event) {
+function toDoInput(event) {
 	event.preventDefault();
 	let toDoItemList = toDoInput?.value;
 	if (toDoItemList === undefined) {
@@ -31,7 +31,6 @@ function createNewTodos(event) {
 
 	appendToDosToHtml(toDoItemList);
 	addToDosToLocalStorage(toDoItemList);
-
 }
 
 function removeToDos() {
