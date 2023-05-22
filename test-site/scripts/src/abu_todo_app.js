@@ -7,7 +7,7 @@ import { getTemplate } from "../src/getTemplate.js";
 
 
 //load content
-window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
+window.addEventListener("DOMContentLoaded", isLocalStorageEmpty);
 
 const toDoInput = document.querySelector(".inputItem");
 const addToDoButton = document.querySelector(".todo-button");
@@ -65,11 +65,12 @@ function updateLocalStorage(event) {
 }
 
 function isLocalStorageEmpty() {
-	if (!localStorage.getItem("toDosList")) {
-		toDosList = [];
-	} else {
-		toDosList = JSON.parse(localStorage.getItem("toDosList"));
-	}
+	if (!localStorage.getItem("toDosList")){
+		alert("localStorageis empty");
+		return;
+	};
+	toDosList = retrieveToDosFromLocalStorage();
+
 	return toDosList;
 }
 
