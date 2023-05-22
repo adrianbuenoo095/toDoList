@@ -3,8 +3,6 @@ import { getTemplate } from "../src/getTemplate.js";
 /**
  * @author Adrian Bueno <adrianbueno095@gmail.con>
  */
-//How to add just the content and not the whole template?
-
 
 //load content
 window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
@@ -51,6 +49,7 @@ function completeToDos() {
 //#endregion
 
 function updateLocalStorage(event) {
+	toDosList = isLocalStorageEmpty();
 	const listOfToDos = toDoItemList.childNodes;
 
 	for (let index = 0; index < listOfToDos.length; index++) {
