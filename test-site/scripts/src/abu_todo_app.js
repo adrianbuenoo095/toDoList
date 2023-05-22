@@ -15,29 +15,29 @@ const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //#region Event Listeners
-addToDoButton.addEventListener("click", toDoInput);
+addToDoButton.addEventListener("click", getToDoFromUser);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
 //#endregion
 
 //#region addEventListeners callbacks functions
-function toDoInput(event) {
+function getToDoFromUser(event) {
 	event.preventDefault();
-	let toDoItemList = toDoInput?.value;
-	if (toDoItemList === undefined) {
+	let task = toDoInput?.value;
+	if (!task) {
 		alert("Please enter a valid toDo");
 		return;
 	}
 
-	appendToDosToHtml(toDoItemList);
-	addToDosToLocalStorage(toDoItemList);
+	appendToDosToHtml(task);
+	addToDosToLocalStorage(task);
 }
 
 function removeToDos() {
 	let removeTrashIcons = document.querySelectorAll(".trash-btn");
 
 	removeTrashIcons.forEach((removeTrashIcon) => {
-		removeTrashIcon.addEventListener("click", updatesLocalStorage);
+		removeTrashIcon.addEventListener("click", updateLocalStorage);
 	});
 }
 
@@ -50,14 +50,14 @@ function completeToDos() {
 }
 //#endregion
 
-function updatesLocalStorage(event) {
+function updateLocalStorage(event) {
 	toDosList = isLocalStorageEmpty();
-	const toDoItemLists = toDoItemList.childNodes;
+	const listOfToDos = toDoItemList.childNodes;
 
-	for (let index = 0; index < toDoItemLists.length; index++) {
-		if (toDoItemLists[index].contains(event.target)) {
+	for (let index = 0; index < listOfToDos.length; index++) {
+		if (listOfToDos[index].contains(event.target)) {
 			toDosList.splice(index, 1);
-			toDoItemList.removeChild(toDoItemLists[index]);
+			toDoItemList.removeChild(listOfToDos[index]);
 			localStorage.setItem("toDosList", JSON.stringify(toDosList));
 			return;
 		}
@@ -74,11 +74,9 @@ function isLocalStorageEmpty() {
 }
 
 function retrieveToDosFromLocalStorage() {
-	if (!localStorage.getItem("toDosList")) return;
-	let toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDosList"));
-
-	toDosFromLocalStorage.forEach((toDo) => {
-		if (toDo === null) return;
+	let getToDosFromLocalStorage = isLocalStorageEmpty();
+	getToDosFromLocalStorage.forEach((toDo) => {
+		if (!toDo) return;
 		appendToDosToHtml(toDo);
 	});
 }
@@ -88,7 +86,7 @@ function appendToDosToHtml(toDo) {
 	toDoInput.value = "";
 }
 
-function addToDosToLocalStorage(toDoItemList) {
+function addToDosToLocalStorage() {
 	toDosList = isLocalStorageEmpty();
 	toDosList.push(toDoItemList);
 	localStorage.setItem("toDosList", JSON.stringify(toDosList));
