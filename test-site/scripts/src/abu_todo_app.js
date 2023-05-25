@@ -13,13 +13,13 @@ const toDoItemList = document.querySelector(".todo-list");
 let toDosList = [];
 
 //#region Event Listeners
-addToDoButton.addEventListener("click", getToDoFromUser);
+addToDoButton.addEventListener("click", getToDosFromUser);
 toDoItemList.addEventListener("click", removeToDos);
 toDoItemList.addEventListener("click", completeToDos);
 //#endregion
 
 //#region addEventListeners callbacks functions
-function getToDoFromUser(event) {
+function getToDosFromUser(event) {
 	event.preventDefault();
 	let task = toDoInput?.value;
 	if (!task) {
@@ -34,16 +34,17 @@ function getToDoFromUser(event) {
 function removeToDos() {
 	let removeTrashIcons = document.querySelectorAll(".trash-btn");
 
-	removeTrashIcons.forEach((removeTrashIcon) => {
-		removeTrashIcon.addEventListener("click", updateLocalStorage);
+	removeTrashIcons.forEach((trashIcon) => {
+		trashIcon.addEventListener("click", updateLocalStorage);
 	});
 }
 
 function completeToDos() {
 	let completeCheckIcons = document.querySelectorAll(".complete-btn");
 
-	completeCheckIcons.forEach((completeCheckIcon) => {
-		completeCheckIcon.addEventListener("click", (event) => { });
+	completeCheckIcons.forEach((completeIcon) => {
+		completeIcon.addEventListener("click", (event) => {
+		});
 	});
 }
 //#endregion
