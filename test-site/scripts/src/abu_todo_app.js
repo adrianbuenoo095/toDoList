@@ -44,7 +44,7 @@ function completeToDos() {
 
 	completeCheckIcons.forEach((completeIcon) => {
 		completeIcon.addEventListener("click", (event) => {
-			
+			console.log("hello");
 		});
 	});
 }
