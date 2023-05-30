@@ -84,12 +84,10 @@ form button:hover {
   width: 100%;
 }
 
-:where(.trash-btn,
-.complete-btn):hover{
-  background:#1a1716;
-
+:where(.trash-btn, .complete-btn):hover {
+  background: #1a1716;
 }
 
-.content{
+.content {
   padding: 10px;
 }
