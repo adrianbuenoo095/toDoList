@@ -83,3 +83,7 @@ form button:hover {
   display: inline;
   width: 100%;
 }
+
+.content{
+  padding: 10px;
+}
