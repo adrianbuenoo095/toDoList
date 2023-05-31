@@ -2,3 +2,4 @@
 .vscode/
 **/.ss
 node_modules
+test-site/scripts/src/test.ts

@@ -14,5 +14,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
   }
 }
