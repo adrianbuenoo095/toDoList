@@ -65,7 +65,7 @@ function updateLocalStorage(event) {
 }
 
 function isLocalStorageEmpty() {
-	return !localStorage.getItem("toDosList") ? toDosList = [] : JSON.parse(localStorage.getItem("toDosList"));
+	return !localStorage.getItem("toDosList") ? toDosList: JSON.parse(localStorage.getItem("toDosList"));
 }
 
 function retrieveToDosFromLocalStorage() {
