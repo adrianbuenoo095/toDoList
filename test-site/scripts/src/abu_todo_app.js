@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", retrieveToDosFromLocalStorage);
 const toDoInput = document.querySelector(".inputItem");
 const addToDoButton = document.querySelector(".todo-button");
 const toDoItemList = document.querySelector(".todo-list");
-let toDosList = [];
+let todos = [];
 
 //#region Event Listeners
 addToDoButton.addEventListener("click", getToDosFromUser);
@@ -51,21 +51,21 @@ function completeToDos() {
 //#endregion
 
 function updateLocalStorage(event) {
-	toDosList = isLocalStorageEmpty();
+	todos = isLocalStorageEmpty();
 	const listOfToDos = toDoItemList.childNodes;
 
 	for (let index = 0; index < listOfToDos.length; index++) {
 		if (listOfToDos[index].contains(event.target)) {
-			toDosList.splice(index, 1);
+			todos.splice(index, 1);
 			toDoItemList.removeChild(listOfToDos[index]);
-			localStorage.setItem("toDosList", JSON.stringify(toDosList));
+			localStorage.setItem("todos", JSON.stringify(todos));
 			return;
 		}
 	}
 }
 
 function isLocalStorageEmpty() {
-	return !localStorage.getItem("toDosList") ? toDosList: JSON.parse(localStorage.getItem("toDosList"));
+	return !localStorage.getItem("todos") ? todos : JSON.parse(localStorage.getItem("todos"));
 }
 
 function retrieveToDosFromLocalStorage() {
@@ -82,7 +82,7 @@ function appendToDosToHtml(toDo) {
 }
 
 function addToDosToLocalStorage(toDo) {
-	toDosList = isLocalStorageEmpty();
-	toDosList.push(toDo);
-	localStorage.setItem("toDosList", JSON.stringify(toDosList));
+	todos = isLocalStorageEmpty();
+	todos.push(toDo);
+	localStorage.setItem("todos", JSON.stringify(todos));
 }
