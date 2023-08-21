@@ -1,5 +1,5 @@
 export function template(contentValue) {
-    let template = `<li class="todo">
+    return `<li class="todo">
                       <div class="content">
                           <p>${contentValue}</p> 
                       </div>  
@@ -16,5 +16,4 @@ export function template(contentValue) {
                           </div>
                       </div>
                   </li>`;
-    return template;
 }
