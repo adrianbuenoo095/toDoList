@@ -1,7 +1,7 @@
 import { getTemplate } from "../src/getTemplate.js";
 
 /**
- * @author Adrian Bueno <adrianbueno095@gmail.con>
+ * @author Adrian Bueno <adrianbueno095@gmail.com>
  */
 
 //load content
