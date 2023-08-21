@@ -1,4 +1,4 @@
-import { getTemplate } from "../src/getTemplate.js";
+import { template } from "./template.js";
 
 /**
  * @author Adrian Bueno <adrianbueno095@gmail.com>
@@ -77,7 +77,7 @@ function retrieveTodosFromLocalStorage() {
 }
 
 function appendTodosToHtml(todo) {
-	todoItemList.insertAdjacentHTML("beforeend", getTemplate(todo));
+	todoItemList.insertAdjacentHTML("beforeend", template(todo));
 	todoInput.value = "";
 }
 

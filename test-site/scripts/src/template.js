@@ -1,4 +1,4 @@
-export function getTemplate(contentValue) {
+export function template(contentValue) {
     let template = `<li class="todo">
                       <div class="content">
                           <p>${contentValue}</p> 
