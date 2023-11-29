@@ -19,7 +19,7 @@ todoItemList.addEventListener("click", completetodos);
 //#endregion
 
 //#region addEventListeners callbacks functions
-function gettodosFromUser(event) {
+const gettodosFromUser = (event) => {
 	event.preventDefault();
 	let task = todoInput?.value;
 	if (!task) {
@@ -31,7 +31,7 @@ function gettodosFromUser(event) {
 	addTodosToLocalStorage(task);
 }
 
-function removetodos() {
+const removetodos = () => {
 	let removeTrashIcons = document.querySelectorAll(".trash-btn");
 
 	removeTrashIcons.forEach((trashIcon) => {
@@ -39,7 +39,7 @@ function removetodos() {
 	});
 }
 
-function completetodos() {
+const completetodos = () => {
 	let completeCheckIcons = document.querySelectorAll(".complete-btn");
 
 	completeCheckIcons.forEach((completeIcon) => {
@@ -50,7 +50,7 @@ function completetodos() {
 }
 //#endregion
 
-function updateLocalStorage(event) {
+const updateLocalStorage = (event) => {
 	todos = isLocalStorageEmpty();
 	const listOftodos = todoItemList.childNodes;
 
@@ -64,11 +64,11 @@ function updateLocalStorage(event) {
 	}
 }
 
-function isLocalStorageEmpty() {
+const isLocalStorageEmpty = () => {
 	return !localStorage.getItem("todos") ? todos : JSON.parse(localStorage.getItem("todos"));
 }
 
-function retrieveTodosFromLocalStorage() {
+const retrieveTodosFromLocalStorage = () => {
 	let localStorageList = isLocalStorageEmpty();
 	localStorageList.forEach((todo) => {
 		if (!todo) return;
@@ -76,12 +76,12 @@ function retrieveTodosFromLocalStorage() {
 	});
 }
 
-function appendTodosToHtml(todo) {
+const appendTodosToHtml = (todo) => {
 	todoItemList.insertAdjacentHTML("beforeend", template(todo));
 	todoInput.value = "";
 }
 
-function addTodosToLocalStorage(todo) {
+const addTodosToLocalStorage = (todo) => {
 	todos = isLocalStorageEmpty();
 	todos.push(todo);
 	localStorage.setItem("todos", JSON.stringify(todos));
